@@ -12,7 +12,7 @@ app.whenReady().then(() => {
   createWindow();
 });
 
-//On OS X it is common for the app to stay active even when windows are closed
+//On OS X it is common for the app to stay active even when windows are closed, this code prevents that
 app.on("window-all-closed", () => {
   app.quit();
 });
