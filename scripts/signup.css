@@ -10,17 +10,107 @@ body {
   padding: 0;
 }
 
-h1,
-button {
-  font-family: "Open Sans", sans-serif;
+body {
+  display: flex;
+  height: 100vh;
 }
 
-h2,
-li {
-  font-family: "Poppins", sans-serif;
+.side-content,
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .side-content {
   background-image: url(../images/login-page-background.png);
   background-size: cover;
+  width: 40vw;
+  color: white;
+  text-align: center;
+}
+
+.side-content-title {
+  font-size: 2.2rem;
+  width: 80%;
+}
+
+main {
+  width: 60vw;
+}
+
+.main-title {
+  font-size: 2rem;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.signup-field {
+  width: 50%;
+}
+
+.signup-field h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.2em 0;
+}
+
+.signup-field input {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 2.8em;
+  margin-bottom: 1.7em;
+  padding: 0 1em;
+  background-color: #e4ebe9;
+  border: 0;
+  border-radius: 10px;
+}
+
+.requirements-container {
+  margin-top: 0.5em;
+}
+
+.requirements {
+  font-size: 1.1rem;
+  margin: 0.7em 0 0.3em 0;
+}
+
+.requirements-container ul {
+  padding-left: 0.3em;
+  margin: 0 0 1.8em 0;
+}
+
+.requirements-container li {
+  list-style-type: none;
+  background-image: url(../images/cross-solid.svg);
+  background-repeat: no-repeat;
+  line-height: 150%;
+  padding-left: 30px;
+  color: #bd5858;
+}
+
+.get-started-btn {
+  width: 40%;
+  min-width: 220px;
+  max-width: 370px;
+  height: 45px;
+  background: #3a807c;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 125%;
+}
+
+.get-started-btn:hover {
+  width: 42%;
+  max-width: 375px;
+}
+
+.get-started-btn:active {
+  background: #32716e;
 }
