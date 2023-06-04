@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="signup.css" />
+    <title>Get Started</title>
+  </head>
+  <body>
+    <div class="side-content">
+      <img src="/images/login-page-background.png" alt="" />
+      <h1 class="side-content-title">Securely manage all your passwords</h1>
+    </div>
+    <main>
+      <h1>Set up your password manager</h1>
+      <div class="signup-field">
+        <h1>Choose a master password</h1>
+        <input type="text" />
+      </div>
+      <div class="signup-field">
+        <h1>Re-enter master password</h1>
+        <input type="text" />
+      </div>
+      <div class="requirements">
+        <h1>Password must have:</h1>
+        <ul>
+          <li>15 characters minimum</li>
+          <li>One special character minimum</li>
+          <li>One uppercase character minimum</li>
+          <li>One lowercase character minimum</li>
+          <li>One number minimum</li>
+        </ul>
+      </div>
+      <button class="get-started-btn">Get started</button>
+    </main>
+  </body>
+</html>
