@@ -9,12 +9,12 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  mainWindow = createWindow();
+  createWindow();
 });
 
 //On OS X it is common for the app to stay active even when windows are closed
 app.on("window-all-closed", () => {
-  if (process.platform != "darwin") {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
