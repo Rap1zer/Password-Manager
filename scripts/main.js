@@ -5,7 +5,7 @@ const createWindow = () => {
     height: 600,
   });
 
-  win.loadFile("./scripts/index.html");
+  win.loadFile("./scripts/login-page.html");
 };
 
 app.whenReady().then(() => {
