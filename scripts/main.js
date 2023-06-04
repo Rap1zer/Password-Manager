@@ -14,7 +14,5 @@ app.whenReady().then(() => {
 
 //On OS X it is common for the app to stay active even when windows are closed
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+  app.quit();
 });
