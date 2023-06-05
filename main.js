@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV !== "development";
 const createWindow = () => {
   const win = new BrowserWindow({
     width: isDev ? 1500 : 870,
-    height: 570,
+    height: 600,
   });
 
   // Open devtools if in dev environment
