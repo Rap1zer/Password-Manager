@@ -42,7 +42,8 @@ main {
 
 .main-title {
   font-size: 2rem;
-  margin-bottom: 2em;
+  margin: 0 0 2em 0;
+  max-width: 450px;
   text-align: center;
 }
 
