@@ -10,13 +10,23 @@ body {
   padding: 0;
 }
 
+h1,
+button {
+  font-family: "Open Sans", sans-serif;
+}
+
+label,
+li {
+  font-family: "Poppins", sans-serif;
+}
+
 body {
   display: flex;
   height: 100vh;
 }
 
 .side-content,
-main {
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +46,7 @@ main {
   width: 80%;
 }
 
-main {
+form {
   width: 60vw;
 }
 
@@ -54,7 +64,7 @@ main {
   justify-content: center;
 }
 
-.signup-field h2 {
+.signup-field label {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 0.2em 0;

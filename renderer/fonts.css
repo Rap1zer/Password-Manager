@@ -1,13 +1,3 @@
-h1,
-button {
-  font-family: "Open Sans", sans-serif;
-}
-
-h2,
-li {
-  font-family: "Poppins", sans-serif;
-}
-
 /* open-sans-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */

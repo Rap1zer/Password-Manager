@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="signup.css" />
     <link rel="stylesheet" href="fonts.css" />
+    <script defer src="signup.js"></script>
     <title>Get Started</title>
   </head>
   <body>
@@ -16,15 +17,15 @@
       <img src="../images/lock-solid.svg" alt="big white lock" />
       <h1 class="side-content-title">Securely manage all your passwords</h1>
     </div>
-    <main>
+    <form>
       <h1 class="main-title">Set up your password manager</h1>
       <div class="signup-field">
-        <h2>Choose a master password</h2>
-        <input type="password" />
+        <label>Choose a master password</label>
+        <input type="password" id="password" />
       </div>
       <div class="signup-field">
-        <h2>Re-enter master password</h2>
-        <input type="password" />
+        <label>Re-enter master password</label>
+        <input type="password" id="password-check" />
       </div>
       <div class="requirements-container">
         <h1 class="requirements">Password must have:</h1>
@@ -36,7 +37,9 @@
           <li>One number minimum</li>
         </ul>
       </div>
-      <button class="get-started-btn">Get started</button>
-    </main>
+      <button type="submit" class="get-started-btn" id="get-started-btn">
+        Get started
+      </button>
+    </form>
   </body>
 </html>
