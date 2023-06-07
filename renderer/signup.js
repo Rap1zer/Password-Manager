@@ -11,8 +11,6 @@ passwordCheckInput.addEventListener("input", () => {});
 
 getStartedBtn.addEventListener("click", () => {
   console.log("btn clicked");
-  // go to main page if sign up was successful
-  location.href = "main-page.html";
 });
 
 function checkPasswordValidity() {
