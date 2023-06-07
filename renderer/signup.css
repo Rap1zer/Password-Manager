@@ -99,11 +99,19 @@ form {
 
 .requirements-container li {
   list-style-type: none;
-  background-image: url(../images/cross-solid.svg);
   background-repeat: no-repeat;
   line-height: 150%;
   padding-left: 30px;
+}
+
+.criteria-not-met {
+  background-image: url(../images/cross-solid.svg);
   color: #bd5858;
+}
+
+.criteria-met {
+  background-image: url(../images/check-solid.svg);
+  color: #2b8e53;
 }
 
 .get-started-btn {
