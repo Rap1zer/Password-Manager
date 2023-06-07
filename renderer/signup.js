@@ -10,9 +10,9 @@ passwordInput.addEventListener("input", () => {
 passwordCheckInput.addEventListener("input", () => {});
 
 getStartedBtn.addEventListener("click", () => {
+  console.log("btn clicked");
   // go to main page if sign up was successful
   location.href = "main-page.html";
-  console.log("btn clicked");
 });
 
 function checkPasswordValidity() {
@@ -20,11 +20,12 @@ function checkPasswordValidity() {
   if (passwordInput.value.length < 15) return false;
 
   // check if password has at least one special character
-  let specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  if (!specialChars.test(passwordInput.value)) return false;
+  const specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  //if (!specialChars.test(passwordInput.value)) return false;
 
   // check if password has at least one uppercase character
-  let 
-  
+  const upperCase = /[A-Z]/;
+  if (!upperCase.test(passwordInput.value)) return false;
+
   return true;
 }
