@@ -8,9 +8,42 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+    <link rel="stylesheet" href="main-page.css" />
+    <link rel="stylesheet" href="fonts.css" />
     <title>Password Manager</title>
   </head>
   <body>
     <a href="signup.html">hi</a>
+    <div class="side-menu">
+      <button class="side-menu-btn everything-btn">
+        <img src="../images/records-icon.svg" />
+        Everything
+      </button>
+      <button class="side-menu-btn starred-btn">
+        <img src="../images/starred-icon.svg" />
+        Starred
+      </button>
+      <button class="side-menu-btn folder-menu-btn">
+        <img src="../images/folder-solid.png" />
+        Folders
+      </button>
+      <div class="folders-section">
+        <button class="folder-btn">Social media</button>
+      </div>
+    </div>
+    <div class="side-content">
+      <h1>Records</h1>
+      <input type="text" />
+      <div class="record">
+        <img src="../images/uknown-logo.png" alt="" />
+        <h1>title</h1>
+        <p>unknown web address</p>
+      </div>
+    </div>
+    <iframe
+      src="password-details.html"
+      frameborder="0"
+      class="main-content"
+    ></iframe>
   </body>
 </html>
