@@ -3,10 +3,9 @@ const signupForm = document.getElementById("signup-form");
 const passwordInput = document.getElementById("password");
 const passwordCheckInput = document.getElementById("password-check");
 const requirementsEl = document.getElementsByTagName("li");
-let isPasswordValid = false;
 
 passwordInput.addEventListener("input", () => {
-  console.log(checkPasswordValidity());
+  console.log(isPasswordValid());
 });
 
 // function makes sure that the password input fields do not accept spaces
@@ -18,7 +17,7 @@ signupForm.addEventListener("keydown", (event) => {
 
 getStartedBtn.addEventListener("click", (event) => {
   // prevent form from submitting if password does not meet all requirements
-  if (!checkPasswordValidity()) {
+  if (!isPasswordValid()) {
     console.log("cannot submit because password not valid");
     event.preventDefault();
   }
@@ -26,7 +25,7 @@ getStartedBtn.addEventListener("click", (event) => {
 
 passwordCheckInput.addEventListener("input", () => {});
 
-function checkPasswordValidity() {
+function isPasswordValid() {
   let passwordValidity = false;
 
   // check if password has at least 15 characters
