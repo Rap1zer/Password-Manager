@@ -33,6 +33,7 @@ function checkPasswordValidity() {
   if (passwordInput.value.length > 15) {
     requirementsEl[0].classList.remove("criteria-not-met");
     requirementsEl[0].classList.add("criteria-met");
+    passwordValidity = true;
   } else {
     requirementsEl[0].classList.add("criteria-not-met");
     requirementsEl[0].classList.remove("criteria-met");
@@ -44,6 +45,7 @@ function checkPasswordValidity() {
   if (specialChars.test(passwordInput.value)) {
     requirementsEl[1].classList.remove("criteria-not-met");
     requirementsEl[1].classList.add("criteria-met");
+    passwordValidity = true;
   } else {
     requirementsEl[1].classList.add("criteria-not-met");
     requirementsEl[1].classList.remove("criteria-met");
@@ -55,6 +57,7 @@ function checkPasswordValidity() {
   if (upperCase.test(passwordInput.value)) {
     requirementsEl[2].classList.remove("criteria-not-met");
     requirementsEl[2].classList.add("criteria-met");
+    passwordValidity = true;
   } else {
     requirementsEl[2].classList.add("criteria-not-met");
     requirementsEl[2].classList.remove("criteria-met");
@@ -66,6 +69,7 @@ function checkPasswordValidity() {
   if (lowerCase.test(passwordInput.value)) {
     requirementsEl[3].classList.remove("criteria-not-met");
     requirementsEl[3].classList.add("criteria-met");
+    passwordValidity = true;
   } else {
     requirementsEl[3].classList.add("criteria-not-met");
     requirementsEl[3].classList.remove("criteria-met");
@@ -77,6 +81,7 @@ function checkPasswordValidity() {
   if (numbers.test(passwordInput.value)) {
     requirementsEl[4].classList.remove("criteria-not-met");
     requirementsEl[4].classList.add("criteria-met");
+    passwordValidity = true;
   } else {
     requirementsEl[4].classList.add("criteria-not-met");
     requirementsEl[4].classList.remove("criteria-met");
