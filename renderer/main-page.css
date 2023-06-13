@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  color: #1e2122;
 }
 
 h1,
@@ -48,7 +49,7 @@ body {
 
 .side-menu-btn img {
   align-self: center;
-  width: 22px;
+  width: 20px;
 }
 
 .side-menu-btn p {
@@ -57,13 +58,14 @@ body {
 
 .folder-section {
   display: flex;
-  width: 100%;
+  flex-direction: column;
 }
 
 .folder-btn {
   color: white;
-  padding: 7px 15px;
-  width: 100%;
+  font-size: 0.8rem;
+  padding: 0.45em 20px;
+  display: block;
 }
 
 .side-records {
