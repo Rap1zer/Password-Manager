@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+button {
+  font-family: "Open Sans", sans-serif;
+}
+
+label,
+li {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #303638;
+  width: 17vw;
+  height: 100vh;
+  max-width: 200px;
+  padding: 1em 0;
+}
+
+.side-menu-btn {
+  display: flex;
+  color: white;
+  padding: 0 1em;
+}
+
+.side-menu-btn:hover,
+.folder-btn:hover {
+  background-color: #474f52;
+}
+
+.side-menu-btn img {
+  align-self: center;
+  width: 22px;
+}
+
+.side-menu-btn p {
+  margin: 10px 15px;
+}
+
+.folder-section {
+  display: flex;
+  width: 100%;
+}
+
+.folder-btn {
+  color: white;
+  padding: 7px 15px;
+  width: 100%;
+}
+
+.side-records {
+  display: flex;
+  flex-direction: column;
+  background-color: #c6ddda;
+  width: 23vw;
+  height: 100vh;
+  max-width: 300px;
+  padding: 1em;
+}
+
+.side-records-title {
+  margin: 0 0 0.2em;
+  font-weight: 400;
+  font-size: 1.625rem;
+}
