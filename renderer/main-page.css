@@ -26,6 +26,8 @@ body {
   display: flex;
 }
 
+/*SIDE MENU*/
+
 .side-menu {
   display: flex;
   flex-direction: column;
@@ -74,9 +76,9 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #c6ddda;
-  width: 23vw;
+  width: 26vw;
   height: 100vh;
-  max-width: 300px;
+  max-width: 400px;
   padding: 1em;
 }
 
@@ -86,6 +88,8 @@ body {
   font-size: 1.625rem;
 }
 
+/*SEARCH BAR*/
+
 .search-bar {
   background: url(../images/magnifying-glass-solid.svg) no-repeat 3px 4px
     #b3d3d6;
@@ -94,10 +98,32 @@ body {
   color: #1e2122;
   font-size: 1rem;
   padding: 5px 7px 5px 28px;
+  margin-bottom: 20px;
   border: 0;
   border-radius: 7px;
 }
 
 .search-bar::placeholder {
   color: #4d5255;
+}
+
+/*RECORDS*/
+
+.record {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.record-icon {
+  margin-right: 10px;
+}
+
+.record-title {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.record-web-address {
+  font-size: 0.875rem;
+  margin: 0;
 }
