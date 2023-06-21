@@ -18,7 +18,7 @@ signupForm.addEventListener("keydown", (event) => {
 getStartedBtn.addEventListener("click", (event) => {
   // prevent form from submitting if password does not meet all requirements
   if (!isPasswordValid()) {
-    console.log("cannot submit because password not valid");
+    console.log("cannot submit because password is not valid");
     event.preventDefault();
   }
 });
@@ -26,13 +26,12 @@ getStartedBtn.addEventListener("click", (event) => {
 passwordCheckInput.addEventListener("input", () => {});
 
 function isPasswordValid() {
-  let passwordValidity = false;
+  let passwordValidity = true;
 
   // check if password has at least 15 characters
   if (passwordInput.value.length > 15) {
     requirementsEl[0].classList.remove("criteria-not-met");
     requirementsEl[0].classList.add("criteria-met");
-    passwordValidity = true;
   } else {
     requirementsEl[0].classList.add("criteria-not-met");
     requirementsEl[0].classList.remove("criteria-met");
@@ -44,7 +43,6 @@ function isPasswordValid() {
   if (specialChars.test(passwordInput.value)) {
     requirementsEl[1].classList.remove("criteria-not-met");
     requirementsEl[1].classList.add("criteria-met");
-    passwordValidity = true;
   } else {
     requirementsEl[1].classList.add("criteria-not-met");
     requirementsEl[1].classList.remove("criteria-met");
@@ -56,7 +54,6 @@ function isPasswordValid() {
   if (upperCase.test(passwordInput.value)) {
     requirementsEl[2].classList.remove("criteria-not-met");
     requirementsEl[2].classList.add("criteria-met");
-    passwordValidity = true;
   } else {
     requirementsEl[2].classList.add("criteria-not-met");
     requirementsEl[2].classList.remove("criteria-met");
@@ -68,7 +65,6 @@ function isPasswordValid() {
   if (lowerCase.test(passwordInput.value)) {
     requirementsEl[3].classList.remove("criteria-not-met");
     requirementsEl[3].classList.add("criteria-met");
-    passwordValidity = true;
   } else {
     requirementsEl[3].classList.add("criteria-not-met");
     requirementsEl[3].classList.remove("criteria-met");
@@ -80,7 +76,6 @@ function isPasswordValid() {
   if (numbers.test(passwordInput.value)) {
     requirementsEl[4].classList.remove("criteria-not-met");
     requirementsEl[4].classList.add("criteria-met");
-    passwordValidity = true;
   } else {
     requirementsEl[4].classList.add("criteria-not-met");
     requirementsEl[4].classList.remove("criteria-met");
