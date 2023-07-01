@@ -8,8 +8,5 @@
     "start": "electron ."
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "nedb-promises": "^6.2.1"
-  }
+  "license": "ISC"
 }
