@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require("electron");
+const Datastore = require("nedb-promises");
 
 const isDev = process.env.NODE_ENV !== "development";
 
@@ -22,9 +23,15 @@ app.whenReady().then(() => {
   createWindow();
 });
 
-//Menu template
+const db = new Datastore({
+  filename: "./database.db",
+  timestampData: true,
+  autoload: true,
+});
 
 //Close app if all windows are closed. Will close even if on Mac
 app.on("window-all-closed", () => {
   app.quit();
 });
+
+module.exports = db;
