@@ -4,7 +4,7 @@ const Datastore = require("nedb-promises");
 
 const isDev = process.env.NODE_ENV !== "development";
 
-const db = new Datastore({
+const db = Datastore.create({
   filename: "./database.db",
   timestampData: true,
   autoload: true,
@@ -12,6 +12,10 @@ const db = new Datastore({
 
 ipcMain.on("masterPass", (event, masterPassword) => {
   db.insert({ masterPassword });
+});
+
+ipcMain.handle("checkMasterPass", async (event, masterPassword) => {
+  return true;
 });
 
 const createWindow = () => {
@@ -30,7 +34,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/signup.html");
+  win.loadFile("renderer/login.html");
 };
 
 app.whenReady().then(() => {

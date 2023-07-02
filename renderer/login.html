@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="fonts.css" />
+    <script defer src="authenticate.js" type="module"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="side-content">
+      <img src="../images/lock-solid.svg" alt="big white lock" />
+      <h1 class="side-content-title">Securely manage all your passwords</h1>
+    </div>
+    <div class="main-content">
+      <h1 class="main-title">Log in to your password manager</h1>
+      <div class="login-field">
+        <label>Enter master password</label>
+        <input type="password" id="password-check" />
+      </div>
+      <button class="login-btn" id="login-btn">Log in</button>
+    </div>
+  </body>
+</html>
