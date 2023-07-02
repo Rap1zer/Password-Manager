@@ -1,7 +1,8 @@
-const { app, BrowserWindow } = require("electron");
-const isDev = process.env.NODE_ENV !== "development";
-
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require("path");
 const Datastore = require("nedb-promises");
+
+const isDev = process.env.NODE_ENV !== "development";
 
 const db = new Datastore({
   filename: "./database.db",
@@ -9,10 +10,17 @@ const db = new Datastore({
   autoload: true,
 });
 
+ipcMain.on("masterPass", (event, masterPassword) => {
+  db.insert({ masterPassword });
+});
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: isDev ? 1500 : 950,
     height: 700,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+    },
   });
 
   win.setMinimumSize(870, 650);

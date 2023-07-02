@@ -20,7 +20,8 @@ addEventListener("submit", (event) => {
   if (isPasswordValid()) {
   } else {
     event.preventDefault();
-    console.log("cannot submit because password is not valid");
+    console.log(passwordInput.value);
+    window.api.setMasterPass(passwordInput.value);
   }
 });
 
