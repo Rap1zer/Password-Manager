@@ -5,7 +5,7 @@ const passwordCheckInput = document.getElementById("password-check");
 const requirementsEl = document.getElementsByTagName("li");
 
 passwordInput.addEventListener("input", () => {
-  console.log(isPasswordValid());
+  isPasswordValid();
 });
 
 // function makes sure that the password input fields do not accept spaces
@@ -15,11 +15,12 @@ signupForm.addEventListener("keydown", (event) => {
   }
 });
 
-getStartedBtn.addEventListener("click", (event) => {
+addEventListener("submit", (event) => {
   // prevent form from submitting if password does not meet all requirements
-  if (!isPasswordValid()) {
-    console.log("cannot submit because password is not valid");
+  if (isPasswordValid()) {
+  } else {
     event.preventDefault();
+    console.log("cannot submit because password is not valid");
   }
 });
 
