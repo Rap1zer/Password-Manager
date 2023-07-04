@@ -26,7 +26,7 @@ ipcMain.handle("check-master-password", async (event, inputMasterPassword) => {
       return true;
     }
 
-    console.log("passwords don't match: " + masterPassword.masterPassword);
+    console.log("passwords don't match");
     return false;
   });
 });
