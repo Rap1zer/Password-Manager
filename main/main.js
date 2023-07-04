@@ -20,13 +20,15 @@ ipcMain.on("set-master-password", (event, masterPassword) => {
 
 // Checks if master password inputted is matches the master password set. Returns true if it is, otherwise it'll return false.
 ipcMain.handle("check-master-password", async (event, inputMasterPassword) => {
-  let passwordMatch = false;
-  db.findOne({ _id: masterPassID }).then((masterPassword) => {
+  return await db.findOne({ _id: masterPassID }).then((masterPassword) => {
     if (hashData(inputMasterPassword) === masterPassword.masterPassword) {
-      passwordMatch = true;
+      console.log("passwords match");
+      return true;
     }
+
+    console.log("passwords don't match: " + masterPassword.masterPassword);
+    return false;
   });
-  return passwordMatch;
 });
 
 function hashData(data) {
