@@ -26,6 +26,13 @@ body {
   display: flex;
 }
 
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
 /*SIDE MENU*/
 
 .side-menu {
@@ -131,4 +138,76 @@ body {
 /*IFRAME MAIN CONTENT*/
 .main-content {
   width: 100%;
+}
+
+/*MODAL*/
+.hidden {
+  display: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.record-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 80vh;
+  background-color: white;
+  border-radius: 7px;
+  padding: 2em 1.5em;
+}
+
+.modal-title {
+  margin: 0 0 0.5em 0;
+}
+
+.record-modal input,
+textarea {
+  display: block;
+  margin-bottom: 1em;
+  padding: 0.7em;
+  background-color: #e4ebe9;
+  border: 0;
+  border-radius: 5px;
+}
+
+.record-modal input {
+  max-width: 330px;
+  width: 100%;
+  height: 2.1em;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  max-height: 200px;
+  min-height: 70px;
+  resize: vertical;
+  line-height: 125%;
+}
+
+.record-modal label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.modal-submit {
+  width: 150px;
+  height: 40px;
+  background: #3a807c;
+  color: white;
+  border: 0;
+  border-radius: 7px;
+  margin-top: 1em;
+  font-size: 1.1rem;
 }
