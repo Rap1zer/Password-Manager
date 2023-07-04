@@ -16,16 +16,15 @@ signupForm.addEventListener("keydown", (event) => {
 });
 
 addEventListener("submit", (event) => {
-  // prevent form from submitting if password does not meet all requirements
+  //set master password if password meets all requirements
   if (isPasswordValid()) {
+    window.api.setMasterPass(passwordInput.value);
   } else {
+    // prevent form from submitting if password does not meet all requirements
     event.preventDefault();
     console.log(passwordInput.value);
-    window.api.setMasterPass(passwordInput.value);
   }
 });
-
-passwordCheckInput.addEventListener("input", () => {});
 
 function isPasswordValid() {
   let passwordValidity = true;
