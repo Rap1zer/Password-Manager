@@ -2,15 +2,11 @@ const loginBtn = document.getElementById("login-btn");
 const passwordInput = document.getElementById("password-check");
 
 passwordInput.addEventListener("input", () => {
-  console.log("pressed a key");
+  console.log("input changed");
 });
 
-addEventListener("submit", (event) => {
-  // prevent form from submitting if password does not meet all requirements
-  if (isPasswordValid()) {
-  } else {
-    event.preventDefault();
-    console.log(passwordInput.value);
-    window.api.setMasterPass(passwordInput.value);
-  }
+loginBtn.addEventListener("click", async () => {
+  let validAuthentication = await window.api.checkMasterPass(
+    passwordInput.value
+  );
 });

@@ -13,18 +13,20 @@ const db = Datastore.create({
   autoload: true,
 });
 
+// Sets master password
 ipcMain.on("set-master-password", (event, masterPassword) => {
   db.insert({ masterPassword: hashData(masterPassword), _id: masterPassID });
 });
 
+// Checks if master password inputted is matches the master password set. Returns true if it is, otherwise it'll return false.
 ipcMain.handle("check-master-password", async (event, inputMasterPassword) => {
-  db.find({ _id: masterPassID }, function (err, masterPassword) {
-    if (inputMasterPassword === masterPassword) {
-      return true;
-    } else {
-      return false;
+  let passwordMatch = false;
+  db.findOne({ _id: masterPassID }).then((masterPassword) => {
+    if (hashData(inputMasterPassword) === masterPassword.masterPassword) {
+      passwordMatch = true;
     }
   });
+  return passwordMatch;
 });
 
 function hashData(data) {
@@ -56,7 +58,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/signup.html");
+  win.loadFile("renderer/login.html");
 };
 
 app.whenReady().then(() => {
