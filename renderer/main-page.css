@@ -171,6 +171,27 @@ button {
   margin: 0 0 0.5em 0;
 }
 
+.exit-modal-btn {
+  position: fixed;
+  right: 1em;
+  top: 1em;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.exit-modal-btn img {
+  height: 100%;
+}
+
+.exit-modal-btn img:hover {
+  filter: brightness(50%);
+}
+
 .record-modal input,
 textarea {
   display: block;
@@ -199,6 +220,12 @@ textarea {
 .record-modal label {
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.optional-input {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #4d5255;
 }
 
 .modal-submit {

@@ -44,26 +44,43 @@
     <div class="modal-backdrop"></div>
     <div class="record-modal">
       <h1 class="modal-title">New record</h1>
+      <button class="exit-modal-btn" id="exit-modal-btn">
+        <img src="../images/xmark-solid.svg" />
+      </button>
       <form>
         <label for="form-title">Record title</label>
-        <input type="text" id="form-title" placeholder="enter title" />
-        <label for="form-description">Description</label>
+        <input type="text" id="form-title" placeholder="enter title" required />
+        <label for="form-description"
+          >Description <span class="optional-input">optional</span></label
+        >
         <textarea
           id="form-description"
           name="form-description"
           placeholder="enter description"
         ></textarea>
-        <label for="form-web-address">Web adress</label>
+        <label for="form-web-address"
+          >Web adress <span class="optional-input">optional</span></label
+        >
         <input
           type="text"
           id="form-web-address"
           placeholder="enter web address"
         />
         <label for="form-username">Username</label>
-        <input type="text" id="form-username" placeholder="enter username" />
+        <input
+          type="text"
+          id="form-username"
+          placeholder="enter username"
+          required
+        />
         <label for="form-password">Password</label>
-        <input type="text" id="form-password" placeholder="enter password" />
-        <button class="modal-submit">Submit</button>
+        <input
+          type="text"
+          id="form-password"
+          placeholder="enter password"
+          required
+        />
+        <button class="modal-submit" id="modal-submit">Submit</button>
       </form>
     </div>
     <iframe
