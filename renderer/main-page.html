@@ -42,12 +42,12 @@
       </div>
     </div>
     <div class="modal-backdrop"></div>
-    <div class="record-modal">
+    <div class="record-modal-background">
       <h1 class="modal-title">New record</h1>
       <button class="exit-modal-btn" id="exit-modal-btn">
         <img src="../images/xmark-solid.svg" />
       </button>
-      <form>
+      <form class="record-modal">
         <label for="form-title">Record title</label>
         <input type="text" id="form-title" placeholder="enter title" required />
         <label for="form-description"
@@ -59,7 +59,7 @@
           placeholder="enter description"
         ></textarea>
         <label for="form-web-address"
-          >Web adress <span class="optional-input">optional</span></label
+          >Web address <span class="optional-input">optional</span></label
         >
         <input
           type="text"
@@ -80,6 +80,17 @@
           placeholder="enter password"
           required
         />
+        <div class="password-strength-section">
+          <label for="password-strength-meter">Password strength meter</label>
+          <progress id="password-strength-meter" value="10" max="50"></progress>
+          <h1 class="guidelines">Password guidelines</h1>
+          <ul>
+            <li>Avoid short passwords</li>
+            <li>Besides letters, include numbers or symbols</li>
+            <li>Password is case sensitive</li>
+            <li>Avoid using the same password for multiple sites</li>
+          </ul>
+        </div>
         <button class="modal-submit" id="modal-submit">Submit</button>
       </form>
     </div>
