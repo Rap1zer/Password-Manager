@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="main-page.css" />
     <link rel="stylesheet" href="fonts.css" />
+    <script src="./newRecord.js" defer></script>
     <title>Password Manager</title>
   </head>
   <body>
@@ -32,7 +33,7 @@
     </div>
     <div class="side-records">
       <h1 class="side-records-title">Records</h1>
-      <input class="search-bar" type="text" placeholder="search accounts" />
+      <input class="search-bar" type="search" placeholder="search accounts" />
       <div class="record">
         <img class="record-icon" src="../images/unknown-logo.svg" alt="" />
         <div>
@@ -41,13 +42,13 @@
         </div>
       </div>
     </div>
-    <div class="modal-backdrop"></div>
-    <div class="record-modal-background">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="record-modal-background" id="record-modal">
       <h1 class="modal-title">New record</h1>
       <button class="exit-modal-btn" id="exit-modal-btn">
         <img src="../images/xmark-solid.svg" />
       </button>
-      <form class="record-modal">
+      <form class="record-modal" id="record-modal-form">
         <label for="form-title">Record title</label>
         <input type="text" id="form-title" placeholder="enter title" required />
         <label for="form-description"
@@ -58,6 +59,10 @@
           name="form-description"
           placeholder="enter description"
         ></textarea>
+        <label for="form-folder-select">Folder</label>
+        <select name="folder" id="form-folder-select">
+          <option value="Everything">Everything</option>
+        </select>
         <label for="form-web-address"
           >Web address <span class="optional-input">optional</span></label
         >
@@ -98,6 +103,7 @@
       src="password-details.html"
       frameborder="0"
       class="main-content"
+      id="password-details"
     ></iframe>
   </body>
 </html>

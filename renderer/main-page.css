@@ -146,6 +146,7 @@ button {
 }
 
 .modal-backdrop {
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -155,6 +156,7 @@ button {
 }
 
 .record-modal-background {
+  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -204,10 +206,11 @@ button {
 }
 
 .exit-modal-btn img:hover {
-  filter: brightness(50%);
+  filter: brightness(20%);
 }
 
 .record-modal input,
+.record-modal select,
 textarea {
   display: block;
   margin-bottom: 1em;
