@@ -14,21 +14,24 @@ const db = Datastore.create({
 });
 
 // Sets master password
-ipcMain.on("set-master-password", (event, masterPassword) => {
+ipcMain.on("set-master-password", (e, masterPassword) => {
   db.insert({ masterPassword: hashData(masterPassword), _id: masterPassID });
 });
 
-// Checks if master password inputted is matches the master password set. Returns true if it is, otherwise it'll return false.
-ipcMain.handle("check-master-password", async (event, inputMasterPassword) => {
+// Checks if master password inputed matches the master password set. Returns true if it is, otherwise it'll return false.
+ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
   return await db.findOne({ _id: masterPassID }).then((masterPassword) => {
     if (hashData(inputMasterPassword) === masterPassword.masterPassword) {
-      console.log("passwords match");
       return true;
     }
 
-    console.log("passwords don't match");
     return false;
   });
+});
+
+ipcMain.on("create-new-record", (e, formData) => {
+  console.log("creating new record");
+  db.insert(formData);
 });
 
 function hashData(data) {

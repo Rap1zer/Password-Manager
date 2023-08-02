@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="main-page.css" />
     <link rel="stylesheet" href="fonts.css" />
-    <script src="./newRecord.js" defer></script>
+    <script src="./recordModal.js" defer></script>
     <title>Password Manager</title>
   </head>
   <body>
@@ -50,13 +50,19 @@
       </button>
       <form class="record-modal" id="record-modal-form">
         <label for="form-title">Record title</label>
-        <input type="text" id="form-title" placeholder="enter title" required />
+        <input
+          type="text"
+          id="form-title"
+          placeholder="enter title"
+          name="title"
+          required
+        />
         <label for="form-description"
           >Description <span class="optional-input">optional</span></label
         >
         <textarea
           id="form-description"
-          name="form-description"
+          name="description"
           placeholder="enter description"
         ></textarea>
         <label for="form-folder-select">Folder</label>
@@ -69,12 +75,14 @@
         <input
           type="text"
           id="form-web-address"
+          name="web-address"
           placeholder="enter web address"
         />
         <label for="form-username">Username</label>
         <input
           type="text"
           id="form-username"
+          name="username"
           placeholder="enter username"
           required
         />
@@ -82,6 +90,7 @@
         <input
           type="text"
           id="form-password"
+          name="password"
           placeholder="enter password"
           required
         />
@@ -96,7 +105,7 @@
             <li>Avoid using the same password for multiple sites</li>
           </ul>
         </div>
-        <button class="modal-submit" id="modal-submit">Submit</button>
+        <button class="modal-submit" id="new-record-submit">Submit</button>
       </form>
     </div>
     <iframe

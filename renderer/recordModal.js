@@ -1,6 +1,7 @@
 const modal = document.getElementById("record-modal");
 const modalBackdrop = document.getElementById("modal-backdrop");
 const exitModalBtn = document.getElementById("exit-modal-btn");
+const submitRecordBtn = document.getElementById("new-record-submit");
 const recordForm = document.getElementById("record-modal-form");
 const iFrame = document.getElementById("password-details");
 let newRecordBtn;
@@ -31,3 +32,18 @@ exitModalBtn.addEventListener("click", () => {
   modalBackdrop.style.display = "none";
   recordForm.reset();
 });
+
+recordForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  console.log(convertFormToObj(formData));
+  window.api.createNewRecord(convertFormToObj(formData));
+});
+
+function convertFormToObj(formData) {
+  const formDataObj = {};
+  for (const pair of formData.entries()) {
+    formDataObj[pair[0]] = pair[1];
+  }
+  return formDataObj;
+}
