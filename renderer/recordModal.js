@@ -36,7 +36,6 @@ exitModalBtn.addEventListener("click", () => {
 recordForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  console.log(convertFormToObj(formData));
   window.api.createNewRecord(convertFormToObj(formData));
 });
 
