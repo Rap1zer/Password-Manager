@@ -7,4 +7,5 @@ contextBridge.exposeInMainWorld("api", {
     ipcRenderer.invoke("check-master-password", masterPass),
   createNewRecord: (formData) =>
     ipcRenderer.send("create-new-record", formData),
+  getRecords: () => ipcRenderer.invoke("get-records"),
 });

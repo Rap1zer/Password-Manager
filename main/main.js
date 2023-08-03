@@ -29,9 +29,29 @@ ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
   });
 });
 
+// Inserts the new record into the database
 ipcMain.on("create-new-record", (e, formData) => {
-  console.log("creating new record");
   db.insert(formData);
+});
+
+// Returns all the accounts / records stored in the database
+ipcMain.handle("get-records", async () => {
+  try {
+    return await db.find({ type: "record" });
+  } catch (error) {
+    console.log("no records");
+    return null;
+  }
+  // return db
+  //   .find({ type: "record" })
+  //   .then((records) => {
+  //     console.log("got records");
+  //     return records;
+  //   })
+  //   .catch(() => {
+  //     console.log("no records");
+  //     return null;
+  //   });
 });
 
 function hashData(data) {
@@ -63,7 +83,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/login.html");
+  win.loadFile("renderer/main-page.html");
 };
 
 app.whenReady().then(() => {

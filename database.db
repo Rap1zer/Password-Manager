@@ -1,1 +1,3 @@
+{"title":"Something","description":"something","folder":"Everything","web-address":"Facebook.com","username":"Unicorn","password":"Rainbow","selected":"true","type":"record","_id":"96anncxzjKoNjtmk","createdAt":{"$$date":1691061541521},"updatedAt":{"$$date":1691061541521}}
+{"title":"A record","description":"idk what this is tbh","folder":"Everything","web-address":"www.notrealsite.com","username":"Hi","password":"Bye","selected":"true","type":"record","_id":"M3n0GrzX6wgXEpH5","createdAt":{"$$date":1691061502290},"updatedAt":{"$$date":1691061502290}}
 {"masterPassword":"f3cbdda76aad8f27d6e847c8f395fcbe4d3b86dcb727073351eab554eb8b5a0f","_id":"iJzJ6V5yMawWqLEn","createdAt":{"$$date":1690898443340},"updatedAt":{"$$date":1690898443340}}
