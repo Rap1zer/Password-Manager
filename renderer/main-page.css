@@ -83,10 +83,14 @@ button {
   display: flex;
   flex-direction: column;
   background-color: #c6ddda;
-  width: 28vw;
+  width: 30vw;
   height: 100vh;
   max-width: 330px;
-  padding: 1em;
+  padding: 1em 0;
+}
+
+.side-records-top {
+  padding: 0 1em;
 }
 
 .side-records-title {
@@ -104,8 +108,8 @@ button {
   font-weight: 300;
   color: #1e2122;
   font-size: 1rem;
-  padding: 5px 7px 5px 28px;
-  margin-bottom: 20px;
+  padding: 5px 2vw 5px 28px;
+  margin-bottom: 10px;
   border: 0;
   border-radius: 7px;
 }
@@ -118,7 +122,19 @@ button {
 
 .record {
   display: flex;
-  margin-bottom: 20px;
+  padding: 0.8em;
+  border: 0;
+  background: none;
+}
+
+.record-info {
+  text-align: start;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.record:hover {
+  background-color: #b4d1ca;
 }
 
 .record-icon {
