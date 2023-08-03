@@ -20,13 +20,12 @@ ipcMain.on("set-master-password", (e, masterPassword) => {
 
 // Checks if master password inputed matches the master password set. Returns true if it is, otherwise it'll return false.
 ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
-  return await db.findOne({ _id: masterPassID }).then((masterPassword) => {
-    if (hashData(inputMasterPassword) === masterPassword.masterPassword) {
-      return true;
-    }
-
-    return false;
-  });
+  try {
+    let correctMasterPass = await db.findOne({ _id: masterPassID });
+    return hashData(inputMasterPassword) === correctMasterPass.masterPassword;
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // Inserts the new record into the database
@@ -42,16 +41,6 @@ ipcMain.handle("get-records", async () => {
     console.log("no records");
     return null;
   }
-  // return db
-  //   .find({ type: "record" })
-  //   .then((records) => {
-  //     console.log("got records");
-  //     return records;
-  //   })
-  //   .catch(() => {
-  //     console.log("no records");
-  //     return null;
-  //   });
 });
 
 function hashData(data) {
@@ -83,7 +72,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/main-page.html");
+  win.loadFile("renderer/login.html");
 };
 
 app.whenReady().then(() => {
