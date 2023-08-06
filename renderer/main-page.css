@@ -95,13 +95,17 @@ button {
   margin: 10px 15px;
 }
 
+.delete-folder-btn {
+  margin-top: auto;
+  visibility: hidden;
+}
+
 .sign-out-btn {
   margin-top: auto;
 }
 
 .folder-section {
   overflow-y: scroll;
-  width: 100%;
   height: max-content;
   margin: 0 0.3em 1em 0;
 }
@@ -112,7 +116,6 @@ button {
   font-size: 0.8rem;
   padding: 0.45em 1.25em;
   display: block;
-  width: 100%;
 }
 
 .new-folder input {
@@ -126,6 +129,10 @@ button {
 
 .new-folder input:focus {
   outline: none;
+}
+
+.button-selected {
+  background-color: #42474d;
 }
 
 .side-records {
