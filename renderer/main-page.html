@@ -15,35 +15,39 @@
     <title>Password Manager</title>
   </head>
   <body>
-    <div class="side-menu">
-      <a class="side-menu-btn everything-btn">
+    <div class="side-menu" id="side-menu">
+      <a class="side-menu-btn unselectable">
         <img src="../images/records-icon.svg" />
         <p>Everything</p>
       </a>
-      <a class="side-menu-btn starred-btn">
+      <a class="side-menu-btn unselectable">
         <img src="../images/starred-icon.svg" />
         <p>Starred</p>
       </a>
-      <div class="side-menu-btn folder-menu-btn">
-        <img src="../images/folder-solid.png" />
-        <p>Folder</p>
+      <div class="side-menu-btn unselectable" id="create-folder-btn">
+        <img src="../images/folder-plus-solid.svg" />
+        <p>Create a folder</p>
       </div>
-      <div class="folders-section">
-        <a class="folder-btn">Placeholder file name</a>
+      <div class="folder-section" id="folders-section">
+        <a class="folder-btn unselectable"> Placeholder </a>
       </div>
+      <a class="side-menu-btn sign-out-btn" id="sign-out-btn">
+        <img src="../images/sign-out icon.svg" />
+        <p>Sign out</p>
+      </a>
     </div>
     <div class="side-records" id="side-records">
       <div class="side-records-top">
         <h1 class="side-records-title">Records</h1>
         <input class="search-bar" type="search" placeholder="search accounts" />
       </div>
-      <!-- <div class="record">
-        <img class="record-icon" src="../images/unknown-logo.svg" alt="" />
-        <div>
-          <h1 class="record-title">title</h1>
-          <p class="record-description">no description</p>
-        </div>
-      </div> -->
+      <!-- <button class="record">
+      <img class="record-icon" src="../images/unknown-logo.svg" alt="" />
+      <div class="record-info">
+        <h1 class="record-title">${records[i].title}</h1>
+        <p class="record-description">${records[i].description}</p>
+      </div>
+    </button> -->
     </div>
     <div class="modal-backdrop" id="modal-backdrop"></div>
     <div class="record-modal-background" id="record-modal">
@@ -70,7 +74,7 @@
         ></textarea>
         <label for="form-folder-select">Folder</label>
         <select name="folder" id="form-folder-select">
-          <option value="Everything">Everything</option>
+          <option value="None">None</option>
         </select>
         <label for="form-web-address"
           >Web address <span class="optional-input">optional</span></label

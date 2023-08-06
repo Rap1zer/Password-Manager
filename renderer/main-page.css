@@ -4,6 +4,29 @@
   box-sizing: border-box;
 }
 
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Makes it so scrollbar does not disappear when not being used */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.folder-section::-webkit-scrollbar-thumb {
+  background-color: rgba(224, 234, 231, 0.5);
+}
+
 html,
 body {
   margin: 0;
@@ -54,7 +77,13 @@ button {
 
 .side-menu-btn:hover,
 .folder-btn:hover {
+  cursor: pointer;
   background-color: #474f52;
+}
+
+.side-menu-btn:active,
+.folder-btn:active {
+  background-color: #384043;
 }
 
 .side-menu-btn img {
@@ -66,17 +95,37 @@ button {
   margin: 10px 15px;
 }
 
+.sign-out-btn {
+  margin-top: auto;
+}
+
 .folder-section {
-  display: flex;
-  flex-direction: column;
+  overflow-y: scroll;
+  width: 100%;
+  height: max-content;
+  margin: 0 0.3em 1em 0;
 }
 
 .folder-btn {
   color: white;
   font-weight: 200;
   font-size: 0.8rem;
-  padding: 0.45em 20px;
+  padding: 0.45em 1.25em;
   display: block;
+  width: 100%;
+}
+
+.new-folder input {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 0;
+}
+
+.new-folder input:focus {
+  outline: none;
 }
 
 .side-records {
@@ -121,6 +170,7 @@ button {
 /*RECORDS*/
 
 .record {
+  cursor: pointer;
   display: flex;
   padding: 0.8em;
   border: 0;
@@ -184,19 +234,9 @@ button {
   padding: 2em 1.5em;
 }
 
-/*Makes it so scrollbar does not disappear when not being used*/
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-}
-
 .record-modal {
   overflow-y: scroll;
+  /* Height equals entire modal minus the title height */
   height: calc(100% - (59px));
 }
 
