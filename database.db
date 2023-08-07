@@ -1,16 +1,21 @@
-{"type":"folder","name":"this works?","_id":"0h0DcqIRfjRSYreU","createdAt":{"$$date":1691401844930},"updatedAt":{"$$date":1691401844930}}
 {"title":"Somethingggggggggggggggggg","description":"something","folder":"None","web-address":"Facebook.com","username":"Unicorn","password":"Rainbow","selected":"true","type":"record","_id":"96anncxzjKoNjtmk","createdAt":{"$$date":1691061541521},"updatedAt":{"$$date":1691061541521}}
 {"title":"A record","description":"idk what this is tbh","folder":"None","web-address":"www.notrealsite.com","username":"Hi","password":"Bye","selected":"true","type":"record","_id":"M3n0GrzX6wgXEpH5","createdAt":{"$$date":1691061502290},"updatedAt":{"$$date":1691061502290}}
 {"title":"Hi!","description":"brrrrrrr","folder":"None","web-address":"s","username":"s","password":"s","selected":"true","type":"record","_id":"fT8zNLSym5d0mAi5","createdAt":{"$$date":1691341559002},"updatedAt":{"$$date":1691341559002}}
 {"masterPassword":"f3cbdda76aad8f27d6e847c8f395fcbe4d3b86dcb727073351eab554eb8b5a0f","_id":"iJzJ6V5yMawWqLEn","createdAt":{"$$date":1690898443340},"updatedAt":{"$$date":1690898443340}}
-{"$$deleted":true,"_id":"0h0DcqIRfjRSYreU"}
-{"type":"folder","name":"hi!","_id":"Hopwa12neZcnrc3Y","createdAt":{"$$date":1691403746355},"updatedAt":{"$$date":1691403746355}}
-{"type":"folder","name":"bye :(","_id":"1WSCpTwRtjlEc4Lg","createdAt":{"$$date":1691403748638},"updatedAt":{"$$date":1691403748638}}
-{"$$deleted":true,"_id":"Hopwa12neZcnrc3Y"}
-{"$$deleted":true,"_id":"1WSCpTwRtjlEc4Lg"}
-{"type":"folder","name":"wow","_id":"NpJJQLT3U4HRwbDv","createdAt":{"$$date":1691403755931},"updatedAt":{"$$date":1691403755931}}
-{"$$deleted":true,"_id":"NpJJQLT3U4HRwbDv"}
-{"type":"folder","name":"some folder","_id":"kH2E1bnaqL4E7lcU","createdAt":{"$$date":1691404375223},"updatedAt":{"$$date":1691404375223}}
-{"type":"folder","name":"social media","_id":"Z8SM7SLQ2QV7zday","createdAt":{"$$date":1691404377449},"updatedAt":{"$$date":1691404377449}}
-{"type":"folder","name":"really important","_id":"YWSd67ZB4rmzu3IK","createdAt":{"$$date":1691404380414},"updatedAt":{"$$date":1691404380414}}
 {"title":"instagram","description":"","folder":"social media","web-address":"","username":"w","password":"w","selected":"true","type":"record","_id":"ohr0AZrgiDh244tK","createdAt":{"$$date":1691404415832},"updatedAt":{"$$date":1691404415832}}
+{"type":"folder","name":"wow","_id":"Q5dqvcmzO1MUKK60","createdAt":{"$$date":1691408039759},"updatedAt":{"$$date":1691408039759}}
+{"$$deleted":true,"_id":"Q5dqvcmzO1MUKK60"}
+{"type":"folder","name":"gaming","_id":"ujgLJ3C9SfG8vY83","createdAt":{"$$date":1691408281201},"updatedAt":{"$$date":1691408281201}}
+{"type":"folder","name":"social media","_id":"PH7siPYDEjFnMWk8","createdAt":{"$$date":1691408284257},"updatedAt":{"$$date":1691408284257}}
+{"type":"folder","name":"bank accounts","_id":"YMkjlztuPEDat4bg","createdAt":{"$$date":1691408287572},"updatedAt":{"$$date":1691408287572}}
+{"$$deleted":true,"_id":"YMkjlztuPEDat4bg"}
+{"type":"folder","name":"bank accounts","_id":"AjyO2Svhal2BPqNj","createdAt":{"$$date":1691408307536},"updatedAt":{"$$date":1691408307536}}
+{"type":"folder","name":"gaming smurf accounts","_id":"KmCZPyNGZdsabH0J","createdAt":{"$$date":1691408311875},"updatedAt":{"$$date":1691408311875}}
+{"$$deleted":true,"_id":"KmCZPyNGZdsabH0J"}
+{"$$deleted":true,"_id":"ujgLJ3C9SfG8vY83"}
+{"type":"folder","name":"gaming smurf accounts","_id":"OpzNB1l0nprJgPvw","createdAt":{"$$date":1691408409851},"updatedAt":{"$$date":1691408409851}}
+{"$$deleted":true,"_id":"OpzNB1l0nprJgPvw"}
+{"type":"folder","name":"smuft accounts","_id":"GvCy4iBvQ18udw61","createdAt":{"$$date":1691408469510},"updatedAt":{"$$date":1691408469510}}
+{"$$deleted":true,"_id":"GvCy4iBvQ18udw61"}
+{"type":"folder","name":"gaming","_id":"hiyATkEqIzEGknl1","createdAt":{"$$date":1691408480889},"updatedAt":{"$$date":1691408480889}}
+{"$$deleted":true,"_id":"hiyATkEqIzEGknl1"}

@@ -5,6 +5,7 @@ const createFolderBtn = document.getElementById("create-folder-btn");
 const deleteFolderBtn = document.getElementById("delete-folder-btn");
 const everythingBtn = document.getElementById("everything-btn");
 const starredBtn = document.getElementById("starred-btn");
+let folders;
 
 everythingBtn.focus();
 changeSelectedBtn(everythingBtn);
@@ -12,7 +13,7 @@ changeSelectedBtn(everythingBtn);
 (async () => {
   // Wait for information saved in database
   const records = await window.api.getRecords(); // List of records
-  const folders = await window.api.getFolders(); // List of folders
+  folders = await window.api.getFolders(); // List of folders
   console.log(folders);
 
   // load records onto the records sidebar
@@ -31,7 +32,7 @@ changeSelectedBtn(everythingBtn);
   for (let i = 0; i < folders.length; i++) {
     folderSection.innerHTML += `
     <a class="folder-btn unselectable">
-      ${folders[i].name}
+      ${folders[i]}
     </a>`;
   }
 })();
@@ -79,6 +80,7 @@ deleteFolderBtn.addEventListener("click", () => {
 
   if (selectedFolder) {
     window.api.deleteFolder(selectedFolder.innerText);
+    folders.splice(folders.indexOf(selectedFolder.innerText), 1);
     selectedFolder.remove();
     everythingBtn.focus();
     changeSelectedBtn(everythingBtn);
@@ -93,11 +95,21 @@ folderSection.addEventListener("click", (e) => {
 
 // Creates a new folder if a folder name is set
 function createNewFolder(newFolderName) {
-  if (newFolderName) {
+  // Create folder if the folder name is not empty
+  breakFolderCreation: if (newFolderName) {
+    newFolderName = newFolderName.trim();
+
+    // if folder name already exists, alert user and break out of if statement
+    if (folders.includes(newFolderName)) {
+      alert("Folder name already exists. Choose a different name.");
+      break breakFolderCreation;
+    }
+
     folderSection.lastChild.innerHTML = newFolderName;
     folderSection.lastChild.id = newFolderName + "_id";
     folderSection.lastChild.classList.remove("new-folder");
     window.api.createNewFolder(newFolderName);
+    folders.push(newFolderName);
   } else {
     folderSection.lastChild.remove();
   }

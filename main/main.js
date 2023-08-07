@@ -54,18 +54,21 @@ ipcMain.on("delete-folder", (e, folder) => {
   db.remove(
     { $and: [({ type: "folder" }, { name: folder })] },
     {},
-    (error, docs) => {
-      console.log(docs);
-    }
+    (error, docs) => {}
   );
 });
 
 // Returns all the folders stored in the database
 ipcMain.handle("get-folders", async () => {
   try {
-    return await db.find({ type: "folder" });
+    const folders = await db.find({ type: "folder" });
+    let folderNames = [];
+    for (folder of folders) {
+      folderNames.push(folder.name);
+    }
+
+    return await folderNames;
   } catch (error) {
-    console.log(error);
     // returns if there are no folders saved or an error occurred
     return null;
   }

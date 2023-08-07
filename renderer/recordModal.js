@@ -8,17 +8,6 @@ const iFrame = document.getElementById("password-details");
 let newRecordBtn;
 let editBtn;
 
-// Wait for list of folders from database
-(async () => {
-  const folders = await window.api.getFolders();
-
-  // load folders onto the record modal
-  for (let i = 0; i < folders.length; i++) {
-    folderSelection.innerHTML += `
-    <option value="${folders[i].name}">${folders[i].name}</option>`;
-  }
-})();
-
 // Function to get iFrame document in order to access DOM elements
 function iframeRef(frameRef) {
   return frameRef.contentWindow
@@ -66,6 +55,13 @@ function convertFormToObj(formData) {
 function openModal() {
   modal.style.display = "block";
   modalBackdrop.style.display = "block";
+
+  folderSelection.innerHTML = `<option value="None">None</option>`;
+  // load folders onto the record modal
+  for (let i = 0; i < folders.length; i++) {
+    folderSelection.innerHTML += `
+    <option value="${folders[i]}">${folders[i]}</option>`;
+  }
 }
 
 // Closes record modal
