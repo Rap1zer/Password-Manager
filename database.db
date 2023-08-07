@@ -10,3 +10,7 @@
 {"$$deleted":true,"_id":"1WSCpTwRtjlEc4Lg"}
 {"type":"folder","name":"wow","_id":"NpJJQLT3U4HRwbDv","createdAt":{"$$date":1691403755931},"updatedAt":{"$$date":1691403755931}}
 {"$$deleted":true,"_id":"NpJJQLT3U4HRwbDv"}
+{"type":"folder","name":"some folder","_id":"kH2E1bnaqL4E7lcU","createdAt":{"$$date":1691404375223},"updatedAt":{"$$date":1691404375223}}
+{"type":"folder","name":"social media","_id":"Z8SM7SLQ2QV7zday","createdAt":{"$$date":1691404377449},"updatedAt":{"$$date":1691404377449}}
+{"type":"folder","name":"really important","_id":"YWSd67ZB4rmzu3IK","createdAt":{"$$date":1691404380414},"updatedAt":{"$$date":1691404380414}}
+{"title":"instagram","description":"","folder":"social media","web-address":"","username":"w","password":"w","selected":"true","type":"record","_id":"ohr0AZrgiDh244tK","createdAt":{"$$date":1691404415832},"updatedAt":{"$$date":1691404415832}}

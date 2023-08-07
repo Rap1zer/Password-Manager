@@ -3,9 +3,21 @@ const modalBackdrop = document.getElementById("modal-backdrop");
 const exitModalBtn = document.getElementById("exit-modal-btn");
 const submitRecordBtn = document.getElementById("new-record-submit");
 const recordForm = document.getElementById("record-modal-form");
+const folderSelection = document.getElementById("form-folder-select");
 const iFrame = document.getElementById("password-details");
 let newRecordBtn;
 let editBtn;
+
+// Wait for list of folders from database
+(async () => {
+  const folders = await window.api.getFolders();
+
+  // load folders onto the record modal
+  for (let i = 0; i < folders.length; i++) {
+    folderSelection.innerHTML += `
+    <option value="${folders[i].name}">${folders[i].name}</option>`;
+  }
+})();
 
 // Function to get iFrame document in order to access DOM elements
 function iframeRef(frameRef) {
