@@ -1,11 +1,12 @@
-{"type":"folder","name":"this works?","_id":"0Rojej9YMGO2mh0B","createdAt":{"$$date":1691401819324},"updatedAt":{"$$date":1691401819324}}
 {"type":"folder","name":"this works?","_id":"0h0DcqIRfjRSYreU","createdAt":{"$$date":1691401844930},"updatedAt":{"$$date":1691401844930}}
 {"title":"Somethingggggggggggggggggg","description":"something","folder":"None","web-address":"Facebook.com","username":"Unicorn","password":"Rainbow","selected":"true","type":"record","_id":"96anncxzjKoNjtmk","createdAt":{"$$date":1691061541521},"updatedAt":{"$$date":1691061541521}}
-{"type":"folder","name":"bank accounts","_id":"D36zmojX9rTQDxJm","createdAt":{"$$date":1691401207965},"updatedAt":{"$$date":1691401207965}}
-{"type":"folder","name":"bank account","_id":"G7fKQynO0nP8LQfP","createdAt":{"$$date":1691400928646},"updatedAt":{"$$date":1691400928646}}
-{"type":"folder","name":"bank account","_id":"JKoDW5jAkgOoTlRa","createdAt":{"$$date":1691400928644},"updatedAt":{"$$date":1691400928644}}
 {"title":"A record","description":"idk what this is tbh","folder":"None","web-address":"www.notrealsite.com","username":"Hi","password":"Bye","selected":"true","type":"record","_id":"M3n0GrzX6wgXEpH5","createdAt":{"$$date":1691061502290},"updatedAt":{"$$date":1691061502290}}
-{"type":"folder","name":"social media","_id":"SmaLjDYDGiv4lN5f","createdAt":{"$$date":1691402593896},"updatedAt":{"$$date":1691402593896}}
 {"title":"Hi!","description":"brrrrrrr","folder":"None","web-address":"s","username":"s","password":"s","selected":"true","type":"record","_id":"fT8zNLSym5d0mAi5","createdAt":{"$$date":1691341559002},"updatedAt":{"$$date":1691341559002}}
 {"masterPassword":"f3cbdda76aad8f27d6e847c8f395fcbe4d3b86dcb727073351eab554eb8b5a0f","_id":"iJzJ6V5yMawWqLEn","createdAt":{"$$date":1690898443340},"updatedAt":{"$$date":1690898443340}}
-{"type":"folder","name":"hi!","_id":"r4NLQHBR3KlimbyZ","createdAt":{"$$date":1691402493670},"updatedAt":{"$$date":1691402493670}}
+{"$$deleted":true,"_id":"0h0DcqIRfjRSYreU"}
+{"type":"folder","name":"hi!","_id":"Hopwa12neZcnrc3Y","createdAt":{"$$date":1691403746355},"updatedAt":{"$$date":1691403746355}}
+{"type":"folder","name":"bye :(","_id":"1WSCpTwRtjlEc4Lg","createdAt":{"$$date":1691403748638},"updatedAt":{"$$date":1691403748638}}
+{"$$deleted":true,"_id":"Hopwa12neZcnrc3Y"}
+{"$$deleted":true,"_id":"1WSCpTwRtjlEc4Lg"}
+{"type":"folder","name":"wow","_id":"NpJJQLT3U4HRwbDv","createdAt":{"$$date":1691403755931},"updatedAt":{"$$date":1691403755931}}
+{"$$deleted":true,"_id":"NpJJQLT3U4HRwbDv"}

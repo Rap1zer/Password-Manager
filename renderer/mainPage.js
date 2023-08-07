@@ -73,13 +73,15 @@ starredBtn.addEventListener("click", (e) => {
 });
 
 // Delete folder
-deleteFolderBtn.addEventListener("click", (e) => {
+deleteFolderBtn.addEventListener("click", () => {
   const selectedFolder =
     folderSection.getElementsByClassName("button-selected")[0];
 
   if (selectedFolder) {
-    window.api.deleteFolder(selectedFolder);
+    window.api.deleteFolder(selectedFolder.innerText);
     selectedFolder.remove();
+    everythingBtn.focus();
+    changeSelectedBtn(everythingBtn);
   }
 });
 
