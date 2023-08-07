@@ -96,6 +96,7 @@ button {
 }
 
 .delete-folder-btn {
+  visibility: hidden;
   margin-top: auto;
 }
 

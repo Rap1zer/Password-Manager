@@ -38,7 +38,29 @@ ipcMain.handle("get-records", async () => {
   try {
     return await db.find({ type: "record" });
   } catch (error) {
-    console.log("no records");
+    console.log(error);
+    // returns if there are no records saved or an error occurred
+    return null;
+  }
+});
+
+// Inserts the new folder name into the database
+ipcMain.on("create-new-folder", (e, folder) => {
+  console.log("creating new folder");
+  db.insert({ type: "folder", folderName: folder });
+});
+
+ipcMain.on("delete-folder", (e, folder) => {
+  console.log("deleting " + folder);
+});
+
+// Returns all the folders stored in the database
+ipcMain.handle("get-folders", async () => {
+  try {
+    return await db.find({ type: "folder" });
+  } catch (error) {
+    console.log(error);
+    // returns if there are no folders saved or an error occurred
     return null;
   }
 });
@@ -72,7 +94,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/login.html");
+  win.loadFile("renderer/main-page.html");
 };
 
 app.whenReady().then(() => {
