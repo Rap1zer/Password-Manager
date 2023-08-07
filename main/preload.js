@@ -11,4 +11,6 @@ contextBridge.exposeInMainWorld("api", {
   createNewFolder: (folder) => ipcRenderer.send("create-new-folder", folder),
   deleteFolder: (folder) => ipcRenderer.send("delete-folder", folder),
   getFolders: () => ipcRenderer.invoke("get-folders"),
+  getRecordsInFolder: (folderName) =>
+    ipcRenderer.invoke("get-records-in-folder", folderName),
 });

@@ -68,8 +68,18 @@ ipcMain.handle("get-folders", async () => {
     }
 
     return await folderNames;
-  } catch (error) {
+  } catch {
     // returns if there are no folders saved or an error occurred
+    return null;
+  }
+});
+
+ipcMain.handle("get-records-in-folder", async (e, folderName) => {
+  try {
+    return await db.find({
+      $and: [({ type: "record" }, { folder: folderName })],
+    });
+  } catch {
     return null;
   }
 });

@@ -1,4 +1,4 @@
-const recordsSideBar = document.getElementById("side-records");
+const recordsSideBar = document.getElementById("records-list");
 const sideMenu = document.getElementById("side-menu");
 const folderSection = document.getElementById("folders-section");
 const createFolderBtn = document.getElementById("create-folder-btn");
@@ -16,17 +16,7 @@ changeSelectedBtn(everythingBtn);
   folders = await window.api.getFolders(); // List of folders
   console.log(folders);
 
-  // load records onto the records sidebar
-  for (let i = 0; i < records.length; i++) {
-    recordsSideBar.innerHTML += `
-    <button class="record">
-      <img class="record-icon" src="../images/unknown-logo.svg" alt="" />
-      <div class="record-info">
-        <h1 class="record-title">${records[i].title}</h1>
-        <p class="record-description">${records[i].description}</p>
-      </div>
-    </button>`;
-  }
+  loadRecordsOntoSidebar(records);
 
   // load folders onto the folders side menu
   for (let i = 0; i < folders.length; i++) {
@@ -44,7 +34,7 @@ createFolderBtn.addEventListener("click", () => {
       <input type="text" id="new-folder">
     </a>`;
 
-  changeSelectedBtn(folderSection.lastChild);
+  changeSelectedBtn(folderSection.lastChild, []);
 
   // Reference to the text input in the new folder element
   const newFolderInput = document.getElementById("new-folder");
@@ -65,8 +55,9 @@ createFolderBtn.addEventListener("click", () => {
   });
 });
 
-everythingBtn.addEventListener("click", (e) => {
-  changeSelectedBtn(everythingBtn);
+everythingBtn.addEventListener("click", async (e) => {
+  const records = await window.api.getRecords(); // List of records
+  changeSelectedBtn(everythingBtn, records);
 });
 
 starredBtn.addEventListener("click", (e) => {
@@ -74,7 +65,7 @@ starredBtn.addEventListener("click", (e) => {
 });
 
 // Delete folder
-deleteFolderBtn.addEventListener("click", () => {
+deleteFolderBtn.addEventListener("click", async () => {
   const selectedFolder =
     folderSection.getElementsByClassName("button-selected")[0];
 
@@ -83,13 +74,18 @@ deleteFolderBtn.addEventListener("click", () => {
     folders.splice(folders.indexOf(selectedFolder.innerText), 1);
     selectedFolder.remove();
     everythingBtn.focus();
-    changeSelectedBtn(everythingBtn);
+
+    const records = await window.api.getRecords(); // List of records
+    changeSelectedBtn(everythingBtn, records);
   }
 });
 
-folderSection.addEventListener("click", (e) => {
+folderSection.addEventListener("click", async (e) => {
   if (e.target.classList.contains("folder-btn")) {
-    changeSelectedBtn(e.target);
+    const folderRecords = await window.api.getRecordsInFolder(
+      e.target.innerText
+    );
+    changeSelectedBtn(e.target, folderRecords);
   }
 });
 
@@ -110,12 +106,13 @@ function createNewFolder(newFolderName) {
     folderSection.lastChild.classList.remove("new-folder");
     window.api.createNewFolder(newFolderName);
     folders.push(newFolderName);
+    loadRecordsOntoSidebar([]);
   } else {
     folderSection.lastChild.remove();
   }
 }
 
-function changeSelectedBtn(newSelectedBtn) {
+function changeSelectedBtn(newSelectedBtn, specificRecords) {
   // remove class from the old selected button
   const selectedButtons = sideMenu.getElementsByClassName("button-selected");
   for (btn of selectedButtons) {
@@ -132,4 +129,21 @@ function changeSelectedBtn(newSelectedBtn) {
 
   // add "button-selected" class to the newly selected button
   newSelectedBtn.classList.add("button-selected");
+
+  if (specificRecords) loadRecordsOntoSidebar(specificRecords);
+}
+
+function loadRecordsOntoSidebar(specificRecords) {
+  recordsSideBar.innerHTML = "";
+  // load records onto the records sidebar
+  for (let i = 0; i < specificRecords.length; i++) {
+    recordsSideBar.innerHTML += `
+    <button class="record">
+      <img class="record-icon" src="../images/unknown-logo.svg" alt="" />
+      <div class="record-info">
+        <h1 class="record-title">${specificRecords[i].title}</h1>
+        <p class="record-description">${specificRecords[i].description}</p>
+      </div>
+    </button>`;
+  }
 }

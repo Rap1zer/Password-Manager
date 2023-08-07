@@ -175,8 +175,8 @@ button {
 }
 
 /*RECORDS*/
-
 .record {
+  width: 100%;
   cursor: pointer;
   display: flex;
   padding: 0.8em;
