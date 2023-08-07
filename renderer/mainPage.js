@@ -10,9 +10,10 @@ everythingBtn.focus();
 changeSelectedBtn(everythingBtn);
 
 (async () => {
-  // Wait for list of saved password records
-  const records = await window.api.getRecords();
-  console.log(records);
+  // Wait for information saved in database
+  const records = await window.api.getRecords(); // List of records
+  const folders = await window.api.getFolders(); // List of folders
+  console.log(folders);
 
   // load records onto the records sidebar
   for (let i = 0; i < records.length; i++) {
@@ -25,10 +26,15 @@ changeSelectedBtn(everythingBtn);
       </div>
     </button>`;
   }
-})();
 
-// load folders onto the folders side menu
-//for (let i = 0; i < folders.length; i++) {}
+  // load folders onto the folders side menu
+  for (let i = 0; i < folders.length; i++) {
+    folderSection.innerHTML += `
+    <a class="folder-btn unselectable">
+      ${folders[i].name}
+    </a>`;
+  }
+})();
 
 // Event listener for the create a folder button
 createFolderBtn.addEventListener("click", () => {

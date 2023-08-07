@@ -47,7 +47,7 @@ ipcMain.handle("get-records", async () => {
 // Inserts the new folder name into the database
 ipcMain.on("create-new-folder", (e, folder) => {
   console.log("creating new folder");
-  db.insert({ type: "folder", folderName: folder });
+  db.insert({ type: "folder", name: folder });
 });
 
 ipcMain.on("delete-folder", (e, folder) => {

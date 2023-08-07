@@ -1,22 +1,11 @@
-{"type":"folder","folderName":"this works?","_id":"0Rojej9YMGO2mh0B","createdAt":{"$$date":1691401819324},"updatedAt":{"$$date":1691401819324}}
-{"type":"folder","folderName":"this works?","_id":"0h0DcqIRfjRSYreU","createdAt":{"$$date":1691401844930},"updatedAt":{"$$date":1691401844930}}
+{"type":"folder","name":"this works?","_id":"0Rojej9YMGO2mh0B","createdAt":{"$$date":1691401819324},"updatedAt":{"$$date":1691401819324}}
+{"type":"folder","name":"this works?","_id":"0h0DcqIRfjRSYreU","createdAt":{"$$date":1691401844930},"updatedAt":{"$$date":1691401844930}}
 {"title":"Somethingggggggggggggggggg","description":"something","folder":"None","web-address":"Facebook.com","username":"Unicorn","password":"Rainbow","selected":"true","type":"record","_id":"96anncxzjKoNjtmk","createdAt":{"$$date":1691061541521},"updatedAt":{"$$date":1691061541521}}
-{"type":"folder","folderName":"bank accounts","_id":"D36zmojX9rTQDxJm","createdAt":{"$$date":1691401207965},"updatedAt":{"$$date":1691401207965}}
-{"type":"folder","folderName":"bank account","_id":"G7fKQynO0nP8LQfP","createdAt":{"$$date":1691400928646},"updatedAt":{"$$date":1691400928646}}
-{"type":"folder","folderName":"bank account","_id":"JKoDW5jAkgOoTlRa","createdAt":{"$$date":1691400928644},"updatedAt":{"$$date":1691400928644}}
+{"type":"folder","name":"bank accounts","_id":"D36zmojX9rTQDxJm","createdAt":{"$$date":1691401207965},"updatedAt":{"$$date":1691401207965}}
+{"type":"folder","name":"bank account","_id":"G7fKQynO0nP8LQfP","createdAt":{"$$date":1691400928646},"updatedAt":{"$$date":1691400928646}}
+{"type":"folder","name":"bank account","_id":"JKoDW5jAkgOoTlRa","createdAt":{"$$date":1691400928644},"updatedAt":{"$$date":1691400928644}}
 {"title":"A record","description":"idk what this is tbh","folder":"None","web-address":"www.notrealsite.com","username":"Hi","password":"Bye","selected":"true","type":"record","_id":"M3n0GrzX6wgXEpH5","createdAt":{"$$date":1691061502290},"updatedAt":{"$$date":1691061502290}}
-{"type":"folder","folderName":"another folder","_id":"MqANzVNtN7auuXZH","createdAt":{"$$date":1691401215511},"updatedAt":{"$$date":1691401215511}}
-{"type":"folder","folderName":"bank accounts","_id":"NSENCf9tc2EAa9Ye","createdAt":{"$$date":1691401171908},"updatedAt":{"$$date":1691401171908}}
-{"type":"folder","folderName":"this works?","_id":"O6NtLjLjCYs4FeFB","createdAt":{"$$date":1691401844925},"updatedAt":{"$$date":1691401844925}}
-{"title":"Snapchat","description":"I don't use snapchat","folder":"None","web-address":"","username":"Rapizer","password":":)dkjjlfskjlsjkwixl","selected":"true","type":"record","_id":"VYudhC5o8hN7PKXV","createdAt":{"$$date":1691397988461},"updatedAt":{"$$date":1691397988461}}
+{"type":"folder","name":"social media","_id":"SmaLjDYDGiv4lN5f","createdAt":{"$$date":1691402593896},"updatedAt":{"$$date":1691402593896}}
 {"title":"Hi!","description":"brrrrrrr","folder":"None","web-address":"s","username":"s","password":"s","selected":"true","type":"record","_id":"fT8zNLSym5d0mAi5","createdAt":{"$$date":1691341559002},"updatedAt":{"$$date":1691341559002}}
 {"masterPassword":"f3cbdda76aad8f27d6e847c8f395fcbe4d3b86dcb727073351eab554eb8b5a0f","_id":"iJzJ6V5yMawWqLEn","createdAt":{"$$date":1690898443340},"updatedAt":{"$$date":1690898443340}}
-{"type":"folder","folderName":"this works","_id":"jP6X8kFMVNcVyEWt","createdAt":{"$$date":1691401684792},"updatedAt":{"$$date":1691401684792}}
-{"type":"folder","folderName":"bank accounts","_id":"l5WlSnrGi86Lxggx","createdAt":{"$$date":1691401009378},"updatedAt":{"$$date":1691401009378}}
-{"type":"folder","folderName":"hi","_id":"nrf8tAsRO7auZfzn","createdAt":{"$$date":1691402086470},"updatedAt":{"$$date":1691402086470}}
-{"type":"folder","folderName":"hi","_id":"oK2DB36TeXutWCKj","createdAt":{"$$date":1691401898460},"updatedAt":{"$$date":1691401898460}}
-{"type":"folder","folderName":"does this work?","_id":"qZOlC6qsttKSb98z","createdAt":{"$$date":1691401378966},"updatedAt":{"$$date":1691401378966}}
-{"type":"folder","folderName":"w","_id":"umVJkIGOxnFzP7YW","createdAt":{"$$date":1691402058373},"updatedAt":{"$$date":1691402058373}}
-{"type":"folder","folderName":"this works?","_id":"vNHfLA2PuWzlZZdS","createdAt":{"$$date":1691401819328},"updatedAt":{"$$date":1691401819328}}
-{"type":"folder","folderName":"bank accounts","_id":"vtvQE88UhhNk3Zwr","createdAt":{"$$date":1691401009373},"updatedAt":{"$$date":1691401009373}}
-{"type":"folder","folderName":"hello","_id":"wVCdtmLAGYBwXlkk","createdAt":{"$$date":1691400963196},"updatedAt":{"$$date":1691400963196}}
+{"type":"folder","name":"hi!","_id":"r4NLQHBR3KlimbyZ","createdAt":{"$$date":1691402493670},"updatedAt":{"$$date":1691402493670}}
