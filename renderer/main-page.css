@@ -175,6 +175,10 @@ button {
 }
 
 /*RECORDS*/
+#records-list {
+  overflow-y: scroll;
+}
+
 .record {
   width: 100%;
   cursor: pointer;

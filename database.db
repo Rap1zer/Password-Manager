@@ -1,29 +1,9 @@
 {"title":"Somethingggggggggggggggggg","description":"something","folder":"None","web-address":"Facebook.com","username":"Unicorn","password":"Rainbow","selected":"true","type":"record","_id":"96anncxzjKoNjtmk","createdAt":{"$$date":1691061541521},"updatedAt":{"$$date":1691061541521}}
-{"type":"folder","name":"bank accounts","_id":"AjyO2Svhal2BPqNj","createdAt":{"$$date":1691408307536},"updatedAt":{"$$date":1691408307536}}
+{"title":"reddit","description":"lol","folder":"social media","web-address":"www.reddit.com","username":"r","password":"r","selected":"true","type":"record","_id":"K7tBbut98sDTyZ37","createdAt":{"$$date":1691428504587},"updatedAt":{"$$date":1691428504587}}
 {"title":"A record","description":"idk what this is tbh","folder":"None","web-address":"www.notrealsite.com","username":"Hi","password":"Bye","selected":"true","type":"record","_id":"M3n0GrzX6wgXEpH5","createdAt":{"$$date":1691061502290},"updatedAt":{"$$date":1691061502290}}
 {"type":"folder","name":"social media","_id":"PH7siPYDEjFnMWk8","createdAt":{"$$date":1691408284257},"updatedAt":{"$$date":1691408284257}}
 {"title":"instagram","description":"","folder":"social media","web-address":"","username":"e","password":"e","selected":"true","type":"record","_id":"V8SSl186m4M5RSJM","createdAt":{"$$date":1691428352549},"updatedAt":{"$$date":1691428352549}}
+{"type":"folder","name":"bank accounts","_id":"XzTutVXnEKBG0Mig","createdAt":{"$$date":1691429765889},"updatedAt":{"$$date":1691429765889}}
 {"title":"Hi!","description":"brrrrrrr","folder":"None","web-address":"s","username":"s","password":"s","selected":"true","type":"record","_id":"fT8zNLSym5d0mAi5","createdAt":{"$$date":1691341559002},"updatedAt":{"$$date":1691341559002}}
 {"masterPassword":"f3cbdda76aad8f27d6e847c8f395fcbe4d3b86dcb727073351eab554eb8b5a0f","_id":"iJzJ6V5yMawWqLEn","createdAt":{"$$date":1690898443340},"updatedAt":{"$$date":1690898443340}}
 {"title":"instagram","description":"","folder":"social media","web-address":"","username":"w","password":"w","selected":"true","type":"record","_id":"ohr0AZrgiDh244tK","createdAt":{"$$date":1691404415832},"updatedAt":{"$$date":1691404415832}}
-{"title":"reddit","description":"lol","folder":"social media","web-address":"www.reddit.com","username":"r","password":"r","selected":"true","type":"record","_id":"K7tBbut98sDTyZ37","createdAt":{"$$date":1691428504587},"updatedAt":{"$$date":1691428504587}}
-{"type":"folder","name":"new folder","_id":"YaqBlkJeRpl2VoyM","createdAt":{"$$date":1691429309160},"updatedAt":{"$$date":1691429309160}}
-{"type":"folder","name":"gaming","_id":"TqkrwYyhSzOeKjEH","createdAt":{"$$date":1691429400995},"updatedAt":{"$$date":1691429400995}}
-{"$$deleted":true,"_id":"TqkrwYyhSzOeKjEH"}
-{"$$deleted":true,"_id":"YaqBlkJeRpl2VoyM"}
-{"type":"folder","name":"gaming","_id":"nU7LsO3yu5VqSD5Y","createdAt":{"$$date":1691429426809},"updatedAt":{"$$date":1691429426809}}
-{"$$deleted":true,"_id":"nU7LsO3yu5VqSD5Y"}
-{"$$deleted":true,"_id":"AjyO2Svhal2BPqNj"}
-{"type":"folder","name":"bank accounts","_id":"XzTutVXnEKBG0Mig","createdAt":{"$$date":1691429765889},"updatedAt":{"$$date":1691429765889}}
-{"type":"folder","name":"gaming","_id":"40qLFmjJEthRcjCD","createdAt":{"$$date":1691429997440},"updatedAt":{"$$date":1691429997440}}
-{"$$deleted":true,"_id":"40qLFmjJEthRcjCD"}
-{"type":"folder","name":"gaming","_id":"qfzshxNsUheLgGgC","createdAt":{"$$date":1691430061711},"updatedAt":{"$$date":1691430061711}}
-{"$$deleted":true,"_id":"qfzshxNsUheLgGgC"}
-{"type":"folder","name":"gaming","_id":"N7v9Duzvrvs3tYGy","createdAt":{"$$date":1691430075902},"updatedAt":{"$$date":1691430075902}}
-{"$$deleted":true,"_id":"N7v9Duzvrvs3tYGy"}
-{"type":"folder","name":"gaming","_id":"64pz2eETVUqvUe3h","createdAt":{"$$date":1691430278775},"updatedAt":{"$$date":1691430278775}}
-{"$$deleted":true,"_id":"64pz2eETVUqvUe3h"}
-{"type":"folder","name":"gaming","_id":"yvug0Zja4zJzQJBl","createdAt":{"$$date":1691430291584},"updatedAt":{"$$date":1691430291584}}
-{"$$deleted":true,"_id":"yvug0Zja4zJzQJBl"}
-{"type":"folder","name":"gaming","_id":"NY9lr9YVySu0l7Go","createdAt":{"$$date":1691430373620},"updatedAt":{"$$date":1691430373620}}
-{"$$deleted":true,"_id":"NY9lr9YVySu0l7Go"}
