@@ -90,6 +90,16 @@ ipcMain.handle("get-records-in-folder", async (e, folderName) => {
   }
 });
 
+ipcMain.handle("get-starred-records", async () => {
+  try {
+    return await db.find({
+      $and: [({ type: "record" }, { starred: true })],
+    });
+  } catch {
+    return null;
+  }
+});
+
 // Star or unstar a record
 ipcMain.on("update-record", async (e, record) => {
   db.remove({ _id: record._id });

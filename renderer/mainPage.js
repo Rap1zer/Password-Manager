@@ -6,6 +6,7 @@ const deleteFolderBtn = document.getElementById("delete-folder-btn");
 const everythingBtn = document.getElementById("everything-btn");
 const starredBtn = document.getElementById("starred-btn");
 let iFrameDoc;
+let selectedBtn;
 let selectedRecord;
 let starRecordBtn;
 let recordDetails;
@@ -95,8 +96,7 @@ recordsSideBar.addEventListener("click", async (e) => {
 });
 
 // Add a record to the starred section
-function toggleStarRecordBtn() {
-  console.log(selectedRecord.starred);
+async function toggleStarRecordBtn() {
   if (selectedRecord.starred == false) {
     // toggle the starred button from false to true
     starRecordBtn.style.backgroundImage = "url(../images/starred-icon.svg)";
@@ -105,6 +105,8 @@ function toggleStarRecordBtn() {
     // toggle the starred button from true to false
     starRecordBtn.style.backgroundImage = "url(../images/not-starred.svg)";
     selectedRecord.starred = false;
+    if (selectedBtn.id === "starred-btn")
+      document.getElementById(selectedRecord._id).remove();
   }
 
   window.api.updateRecord(selectedRecord);
@@ -115,8 +117,9 @@ everythingBtn.addEventListener("click", async (e) => {
   changeSelectedBtn(everythingBtn, records);
 });
 
-starredBtn.addEventListener("click", (e) => {
-  changeSelectedBtn(starredBtn);
+starredBtn.addEventListener("click", async (e) => {
+  const starredRecords = await window.api.getStarredRecords();
+  changeSelectedBtn(starredBtn, starredRecords);
 });
 
 // Delete folder
@@ -170,6 +173,7 @@ function createNewFolder(newFolderName) {
 function changeSelectedBtn(newSelectedBtn, recordsToLoad) {
   // remove class from the old selected button
   const selectedButtons = sideMenu.getElementsByClassName("button-selected");
+  // There are rare edge cases where there are two selected buttons due to lag
   for (btn of selectedButtons) {
     if (btn.classList.contains("button-selected"))
       btn.classList.remove("button-selected");
@@ -184,6 +188,7 @@ function changeSelectedBtn(newSelectedBtn, recordsToLoad) {
 
   // add "button-selected" class to the newly selected button
   newSelectedBtn.classList.add("button-selected");
+  selectedBtn = newSelectedBtn;
 
   if (recordsToLoad) loadRecordsOntoSidebar(recordsToLoad);
 }
