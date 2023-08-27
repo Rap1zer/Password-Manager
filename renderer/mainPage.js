@@ -71,7 +71,11 @@ recordsSideBar.addEventListener("click", async (e) => {
     <button class="star-record-btn" id="star-record-btn"></button>
     </h1>
     <p class="description">${selectedRecord.description}</p>
-    <p class="web-address">Website address: ${selectedRecord["web-address"]}</p>
+    <p class="web-address">${
+      selectedRecord["web-address"]
+        ? "Website address:" + selectedRecord["web-address"]
+        : ""
+    }</p>
     <p class="username">Username: ${selectedRecord.username}</p>
     <p class="password">Password: ${selectedRecord.password}</p>
   `;
