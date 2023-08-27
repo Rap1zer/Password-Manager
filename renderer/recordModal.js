@@ -36,7 +36,7 @@ exitModalBtn.addEventListener("click", () => {
 recordForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  formData.append("selected", true); // Appends a new value which indicates whether the record is selected
+  formData.append("starred", false); // Appends a new value indicating if the record is starred
   formData.append("type", "record");
   window.api.createNewRecord(convertFormToObj(formData));
   location.reload();

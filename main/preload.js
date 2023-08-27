@@ -8,6 +8,7 @@ contextBridge.exposeInMainWorld("api", {
   createNewRecord: (formData) =>
     ipcRenderer.send("create-new-record", formData),
   getRecords: () => ipcRenderer.invoke("get-records"),
+  getRecord: (_id) => ipcRenderer.invoke("get-record", _id),
   createNewFolder: (folder) => ipcRenderer.send("create-new-folder", folder),
   deleteFolder: (folder) => ipcRenderer.send("delete-folder", folder),
   getFolders: () => ipcRenderer.invoke("get-folders"),

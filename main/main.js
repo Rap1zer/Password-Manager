@@ -44,6 +44,15 @@ ipcMain.handle("get-records", async () => {
   }
 });
 
+// Returns specific record selected by user
+ipcMain.handle("get-record", async (e, _id) => {
+  try {
+    return await db.findOne({ _id: _id });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // Inserts the new folder name into the database
 ipcMain.on("create-new-folder", (e, folder) => {
   db.insert({ type: "folder", name: folder });
