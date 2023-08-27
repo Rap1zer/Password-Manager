@@ -60,11 +60,7 @@ ipcMain.on("create-new-folder", (e, folder) => {
 
 // Removes the folder with a specific folder name from the database
 ipcMain.on("delete-folder", (e, folder) => {
-  db.remove(
-    { $and: [({ type: "folder" }, { name: folder })] },
-    {},
-    (error, docs) => {}
-  );
+  db.remove({ $and: [({ type: "folder" }, { name: folder })] });
 });
 
 // Returns all the folders stored in the database
@@ -83,6 +79,7 @@ ipcMain.handle("get-folders", async () => {
   }
 });
 
+// Find all the records in a specified folder
 ipcMain.handle("get-records-in-folder", async (e, folderName) => {
   try {
     return await db.find({
@@ -91,6 +88,12 @@ ipcMain.handle("get-records-in-folder", async (e, folderName) => {
   } catch {
     return null;
   }
+});
+
+// Star or unstar a record
+ipcMain.on("update-record", async (e, record) => {
+  db.remove({ _id: record._id });
+  db.insert(record);
 });
 
 function hashData(data) {

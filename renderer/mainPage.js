@@ -5,6 +5,9 @@ const createFolderBtn = document.getElementById("create-folder-btn");
 const deleteFolderBtn = document.getElementById("delete-folder-btn");
 const everythingBtn = document.getElementById("everything-btn");
 const starredBtn = document.getElementById("starred-btn");
+let iFrameDoc;
+let selectedRecord;
+let starRecordBtn;
 let recordDetails;
 let folders;
 
@@ -15,7 +18,6 @@ changeSelectedBtn(everythingBtn);
   // Wait for information saved in database
   const records = await window.api.getRecords(); // List of records
   folders = await window.api.getFolders(); // List of folders
-  console.log(folders);
 
   loadRecordsOntoSidebar(records);
 
@@ -30,7 +32,7 @@ changeSelectedBtn(everythingBtn);
 
 // Gets called after iFrame contents are loaded. (Otherwise script cannot accesss iFrame DOM objects)
 iFrame.addEventListener("load", () => {
-  const iFrameDoc = iframeRef(iFrame);
+  iFrameDoc = iframeRef(iFrame);
   recordDetails = iFrameDoc.getElementById("record-details");
 });
 
@@ -63,7 +65,7 @@ createFolderBtn.addEventListener("click", () => {
 });
 
 recordsSideBar.addEventListener("click", async (e) => {
-  const selectedRecord = await window.api.getRecord(e.target.id); // Find specific record with ID
+  selectedRecord = await window.api.getRecord(e.target.id); // Find specific record with ID
   console.log(selectedRecord);
   recordDetails.innerHTML = `
     <h1 class="title">
@@ -73,13 +75,40 @@ recordsSideBar.addEventListener("click", async (e) => {
     <p class="description">${selectedRecord.description}</p>
     <p class="web-address">${
       selectedRecord["web-address"]
-        ? "Website address:" + selectedRecord["web-address"]
+        ? "Website address: " + selectedRecord["web-address"]
         : ""
     }</p>
     <p class="username">Username: ${selectedRecord.username}</p>
     <p class="password">Password: ${selectedRecord.password}</p>
   `;
+
+  starRecordBtn = iFrameDoc.getElementById("star-record-btn");
+
+  if (selectedRecord.starred === true) {
+    starRecordBtn.style.backgroundImage = "url(../images/starred-icon.svg)";
+  } else {
+    starRecordBtn.style.backgroundImage = "url(../images/not-starred.svg)";
+    selectedRecord.starred = false;
+  }
+
+  starRecordBtn.addEventListener("click", toggleStarRecordBtn);
 });
+
+// Add a record to the starred section
+function toggleStarRecordBtn() {
+  console.log(selectedRecord.starred);
+  if (selectedRecord.starred == false) {
+    // toggle the starred button from false to true
+    starRecordBtn.style.backgroundImage = "url(../images/starred-icon.svg)";
+    selectedRecord.starred = true;
+  } else {
+    // toggle the starred button from true to false
+    starRecordBtn.style.backgroundImage = "url(../images/not-starred.svg)";
+    selectedRecord.starred = false;
+  }
+
+  window.api.updateRecord(selectedRecord);
+}
 
 everythingBtn.addEventListener("click", async (e) => {
   const records = await window.api.getRecords(); // List of records
