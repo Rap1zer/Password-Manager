@@ -41,6 +41,7 @@ ipcMain.on("create-new-record", (e, formData) => {
   const passwordCipher = encryptPassword(formData.password);
   formData.password = passwordCipher.password;
   formData.salt = passwordCipher.salt;
+  formData.authTag = passwordCipher.authTag;
   db.insert(formData);
 });
 
@@ -58,7 +59,8 @@ ipcMain.handle("get-records", async () => {
 // Returns specific record selected by user
 ipcMain.handle("get-record", async (e, _id) => {
   try {
-    return await db.findOne({ _id: _id });
+    let record = await db.findOne({ _id: _id });
+    return decryptRecord(record);
   } catch (error) {
     console.log(error);
   }
@@ -111,21 +113,29 @@ ipcMain.handle("get-starred-records", async () => {
   }
 });
 
-// Star or unstar a record
+// Update a record's properties
 ipcMain.on("update-record", async (e, record) => {
   db.remove({ _id: record._id });
+  const passwordCipher = encryptPassword(record.password);
+  record.password = passwordCipher.password;
+  record.salt = passwordCipher.salt;
   db.insert(record);
 });
 
-// Create a cipher from the password
 function encryptPassword(password) {
   const algorithm = "aes-256-gcm"; // encryption algorithm to be used
   const randomSalt = crypto.randomBytes(16); // The initial vector
   const cipher = crypto.createCipheriv(algorithm, derivedKey, randomSalt); // The cipher function
-  // Encrypt the password using the cipher function and return the password and salt
+  // Encrypt the password using the cipher function
+  let encryptedPassword = cipher.update(password, "utf-8", "hex");
+  encryptedPassword += cipher.final("hex");
+  const authTag = cipher.getAuthTag();
+
+  //return the password and salt
   return {
-    password: cipher.update(password, "utf-8", "hex"),
+    password: encryptedPassword,
     salt: randomSalt,
+    authTag: authTag.toString("hex"),
   };
 }
 
@@ -140,6 +150,26 @@ function hashPassword(password) {
     .digest("hex");
 
   return hashValue;
+}
+
+// Decrypt record password
+function decryptRecord(record) {
+  const algorithm = "aes-256-gcm"; // decryption algorithm to be used
+  const iv = Buffer.from(Object.values(record.salt));
+  // decipher function
+  const decipher = crypto.createDecipheriv(algorithm, derivedKey, iv);
+
+  // Provide the authentication tag
+  decipher.setAuthTag(Buffer.from(record.authTag, "hex"));
+
+  // Decrypt the password
+  let decryptedPassword = decipher.update(record.password, "hex", "utf-8");
+  console.log(decryptedPassword);
+  decryptedPassword += decipher.final("utf-8");
+
+  // Update and return record
+  record.password = decryptedPassword;
+  return record;
 }
 
 const createWindow = () => {
