@@ -4,6 +4,8 @@ const Datastore = require("nedb-promises");
 
 const crypto = require("crypto");
 const masterPassID = "iJzJ6V5yMawWqLEn";
+const salt = "796f79abfd25a6b8f657ddd44195f91f";
+let derivedKey;
 
 const isDev = process.env.NODE_ENV !== "development";
 
@@ -15,14 +17,19 @@ const db = Datastore.create({
 
 // Sets master password
 ipcMain.on("set-master-password", (e, masterPassword) => {
-  db.insert({ masterPassword: hashData(masterPassword), _id: masterPassID });
+  db.insert({
+    masterPassword: hashPassword(masterPassword),
+    _id: masterPassID,
+  });
+  derivedKey = crypto.scryptSync(masterPassword, salt, 32);
 });
 
 // Checks if master password inputed matches the master password set. Returns true if it is, otherwise it'll return false.
 ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
   try {
-    let correctMasterPass = await db.findOne({ _id: masterPassID });
-    return hashData(inputMasterPassword) === correctMasterPass.masterPassword;
+    let masterPass = await db.findOne({ _id: masterPassID });
+    derivedKey = crypto.scryptSync(inputMasterPassword, salt, 32);
+    return hashPassword(inputMasterPassword) === masterPass.masterPassword;
   } catch (error) {
     console.log(error);
   }
@@ -30,6 +37,10 @@ ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
 
 // Inserts the new record into the database
 ipcMain.on("create-new-record", (e, formData) => {
+  // Encrypt the password
+  const passwordCipher = encryptPassword(formData.password);
+  formData.password = passwordCipher.password;
+  formData.salt = passwordCipher.salt;
   db.insert(formData);
 });
 
@@ -106,12 +117,24 @@ ipcMain.on("update-record", async (e, record) => {
   db.insert(record);
 });
 
-function hashData(data) {
+// Create a cipher from the password
+function encryptPassword(password) {
+  const algorithm = "aes-256-gcm"; // encryption algorithm to be used
+  const randomSalt = crypto.randomBytes(16); // The initial vector
+  const cipher = crypto.createCipheriv(algorithm, derivedKey, randomSalt); // The cipher function
+  // Encrypt the password using the cipher function and return the password and salt
+  return {
+    password: cipher.update(password, "utf-8", "hex"),
+    salt: randomSalt,
+  };
+}
+
+function hashPassword(password) {
   const hashValue = crypto
     .createHash("sha256")
 
-    // Data to be encoded
-    .update(data)
+    // Password to be encoded
+    .update(password)
 
     // Defining encoding type
     .digest("hex");
@@ -135,7 +158,7 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/main-page.html");
+  win.loadFile("renderer/login.html");
 };
 
 app.whenReady().then(() => {

@@ -133,6 +133,15 @@ deleteFolderBtn.addEventListener("click", async () => {
     selectedFolder.remove();
     everythingBtn.focus();
 
+    // Move every record in the deleted folder to "everything"
+    const folderRecords = await window.api.getRecordsInFolder(
+      selectedFolder.innerText.trim()
+    );
+    for (let record of folderRecords) {
+      record.folder = "None";
+      window.api.updateRecord(record);
+    }
+
     const records = await window.api.getRecords(); // List of records
     changeSelectedBtn(everythingBtn, records);
   }
