@@ -5,6 +5,7 @@ const createFolderBtn = document.getElementById("create-folder-btn");
 const deleteFolderBtn = document.getElementById("delete-folder-btn");
 const everythingBtn = document.getElementById("everything-btn");
 const starredBtn = document.getElementById("starred-btn");
+const signoutBtn = document.getElementById("sign-out-btn");
 let iFrameDoc;
 let selectedBtn;
 let selectedRecord;
@@ -120,6 +121,10 @@ everythingBtn.addEventListener("click", async (e) => {
 starredBtn.addEventListener("click", async (e) => {
   const starredRecords = await window.api.getStarredRecords();
   changeSelectedBtn(starredBtn, starredRecords);
+});
+
+signoutBtn.addEventListener("click", () => {
+  window.api.closeWindow();
 });
 
 // Delete folder

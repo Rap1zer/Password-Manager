@@ -1,13 +1,12 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const Datastore = require("nedb-promises");
-
 const crypto = require("crypto");
 const masterPassID = "iJzJ6V5yMawWqLEn";
 const salt = "796f79abfd25a6b8f657ddd44195f91f";
-let derivedKey;
-
 const isDev = process.env.NODE_ENV !== "development";
+let derivedKey;
+let win;
 
 const db = Datastore.create({
   filename: "./database.db",
@@ -122,6 +121,11 @@ ipcMain.on("update-record", async (e, record) => {
   db.insert(record);
 });
 
+// Close the application
+ipcMain.on("close-window", () => {
+  win.close();
+});
+
 function encryptPassword(password) {
   const algorithm = "aes-256-gcm"; // encryption algorithm to be used
   const randomSalt = crypto.randomBytes(16); // The initial vector
@@ -172,8 +176,8 @@ function decryptRecord(record) {
   return record;
 }
 
-const createWindow = () => {
-  const win = new BrowserWindow({
+const createWindow = (fileToLoad) => {
+  win = new BrowserWindow({
     width: isDev ? 1500 : 950,
     height: 700,
     webPreferences: {
@@ -188,11 +192,16 @@ const createWindow = () => {
     win.webContents.openDevTools();
   }
 
-  win.loadFile("renderer/login.html");
+  win.loadFile(fileToLoad);
 };
 
-app.whenReady().then(() => {
-  createWindow();
+app.whenReady().then(async () => {
+  const isAccountSetUp = await db.findOne({ _id: masterPassID });
+  if (isAccountSetUp) {
+    createWindow("renderer/login.html");
+  } else {
+    createWindow("renderer/signup.html");
+  }
 });
 
 //Close app if all windows are closed. Will close even if on Mac

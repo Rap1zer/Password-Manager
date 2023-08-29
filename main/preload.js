@@ -16,4 +16,5 @@ contextBridge.exposeInMainWorld("api", {
     ipcRenderer.invoke("get-records-in-folder", folderName),
   getStarredRecords: () => ipcRenderer.invoke("get-starred-records"),
   updateRecord: (record) => ipcRenderer.send("update-record", record),
+  closeWindow: () => ipcRenderer.send("close-window"),
 });
