@@ -16,13 +16,19 @@ signupForm.addEventListener("keydown", (event) => {
 });
 
 addEventListener("submit", (event) => {
-  //set master password if password meets all requirements
-  if (isPasswordValid()) {
+  //set master password if password meets all requirements and is retyped twice properly
+  if (isPasswordValid() && passwordCheckInput.value === passwordInput.value) {
     window.api.setMasterPass(passwordInput.value);
   } else {
     // prevent form from submitting if password does not meet all requirements
     event.preventDefault();
-    console.log(passwordInput.value);
+
+    if (passwordCheckInput.value !== passwordInput.value) {
+      console.log(passwordCheckInput.value);
+      alert("Passwords do not match.");
+    }
+    if (!isPasswordValid())
+      alert("Password does not meet all the requirements.");
   }
 });
 

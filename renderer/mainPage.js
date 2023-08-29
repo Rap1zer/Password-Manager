@@ -167,7 +167,7 @@ function createNewFolder(newFolderName) {
   breakFolderCreation: if (newFolderName) {
     newFolderName = newFolderName.trim();
 
-    // if folder name already exists, alert user and break out of if statement
+    // if folder name already exists, alert user and stop creating a new folder
     if (folders.includes(newFolderName)) {
       alert("Folder name already exists. Choose a different name.");
       break breakFolderCreation;
