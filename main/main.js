@@ -115,7 +115,6 @@ ipcMain.handle("get-starred-records", async () => {
 // Update a record's properties
 ipcMain.on("update-record", async (e, record) => {
   db.remove({ _id: record._id });
-  console.log("record password is " + record.password);
   const passwordCipher = encryptPassword(record.password);
   record.password = passwordCipher.password;
   record.salt = passwordCipher.salt;

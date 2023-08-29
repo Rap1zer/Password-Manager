@@ -45,7 +45,7 @@ createFolderBtn.addEventListener("click", () => {
       <input type="text" id="new-folder">
     </a>`;
 
-  changeSelectedBtn(folderSection.lastChild, []);
+  changeSelectedBtn(folderSection.lastChild);
 
   // Reference to the text input in the new folder element
   const newFolderInput = document.getElementById("new-folder");
@@ -163,13 +163,14 @@ folderSection.addEventListener("click", async (e) => {
 // Creates a new folder if a folder name is set
 function createNewFolder(newFolderName) {
   // Create folder if the folder name is not empty
-  breakFolderCreation: if (newFolderName) {
+  if (newFolderName) {
     newFolderName = newFolderName.trim();
+    changeSelectedBtn(folderSection.lastChild, []);
 
     // if folder name already exists, alert user and stop creating a new folder
     if (folders.includes(newFolderName)) {
       alert("Folder name already exists. Choose a different name.");
-      break breakFolderCreation;
+      return;
     }
 
     folderSection.lastChild.innerHTML = newFolderName;

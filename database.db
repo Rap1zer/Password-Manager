@@ -43,3 +43,17 @@
 {"title":"League of legends","description":"Arcane is mega mega epic","folder":"gaming","web-address":"","username":"Rapizer","password":"689ef02c534d7dfbb5f9fbf1","type":"record","starred":"false","_id":"ZUQno3ZOkGNazg55","salt":{"0":96,"1":184,"2":211,"3":7,"4":156,"5":69,"6":182,"7":126,"8":13,"9":67,"10":47,"11":197,"12":224,"13":128,"14":54,"15":157},"authTag":"659a7062f6a4b03b55f9a5d32813d74b","createdAt":{"$$date":1693346221932},"updatedAt":{"$$date":1693346221932}}
 {"$$deleted":true,"_id":"j5uCCvV5upVbiAjG"}
 {"title":"League of legends","description":"Arcane is epic","folder":"gaming","web-address":"","username":"Rapizer","password":"96ba44165624229d","type":"record","starred":"false","_id":"j5uCCvV5upVbiAjG","salt":{"0":26,"1":1,"2":217,"3":43,"4":38,"5":245,"6":255,"7":53,"8":145,"9":106,"10":4,"11":7,"12":236,"13":19,"14":82,"15":221},"authTag":"60629f73531834aa280878e1519c6824","createdAt":{"$$date":1693346228672},"updatedAt":{"$$date":1693346228672}}
+{"type":"folder","name":"help","_id":"t70KDImAmAZoVqBN","createdAt":{"$$date":1693346625264},"updatedAt":{"$$date":1693346625264}}
+{"$$deleted":true,"_id":"t70KDImAmAZoVqBN"}
+{"$$deleted":true,"_id":"L5MiUsMcIC8vEfcM"}
+{"$$deleted":true,"_id":"ZUQno3ZOkGNazg55"}
+{"title":"League of legends","description":"Arcane is mega mega epic","folder":"None","web-address":"","username":"Rapizer","password":"0baa6ccaf51617b5956018e242b5870df92654ef7d3a3e51","type":"record","starred":"false","_id":"ZUQno3ZOkGNazg55","salt":{"0":30,"1":211,"2":81,"3":207,"4":42,"5":136,"6":252,"7":75,"8":237,"9":250,"10":202,"11":3,"12":231,"13":61,"14":50,"15":22},"authTag":"07e897920d08f885f0a0fd5b1531ac26","createdAt":{"$$date":1693346221932},"updatedAt":{"$$date":1693346221932}}
+{"$$deleted":true,"_id":"j5uCCvV5upVbiAjG"}
+{"title":"League of legends","description":"Arcane is epic","folder":"None","web-address":"","username":"Rapizer","password":"75166b3525497b68d9ec84320dda03ea","type":"record","starred":"false","_id":"j5uCCvV5upVbiAjG","salt":{"0":231,"1":4,"2":2,"3":73,"4":124,"5":25,"6":197,"7":138,"8":22,"9":62,"10":237,"11":149,"12":164,"13":16,"14":104,"15":193},"authTag":"5266462fe765f7b447a20837dd0a5c13","createdAt":{"$$date":1693346228672},"updatedAt":{"$$date":1693346228672}}
+{"type":"folder","name":"gaming","_id":"M4YAjb9TNyv91pgp","createdAt":{"$$date":1693346708159},"updatedAt":{"$$date":1693346708159}}
+{"type":"folder","name":"smurf gaming","_id":"Jz7LNkqbK2TBBMCs","createdAt":{"$$date":1693346727827},"updatedAt":{"$$date":1693346727827}}
+{"$$deleted":true,"_id":"Jz7LNkqbK2TBBMCs"}
+{"type":"folder","name":"hello","_id":"T9Jr40mWI8qINqH8","createdAt":{"$$date":1693346825988},"updatedAt":{"$$date":1693346825988}}
+{"type":"folder","name":"bye","_id":"HIu383OR6ASx5STI","createdAt":{"$$date":1693346927432},"updatedAt":{"$$date":1693346927432}}
+{"$$deleted":true,"_id":"HIu383OR6ASx5STI"}
+{"$$deleted":true,"_id":"T9Jr40mWI8qINqH8"}
