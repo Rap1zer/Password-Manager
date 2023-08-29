@@ -63,9 +63,9 @@ recordForm.addEventListener("submit", (e) => {
     console.log("created new form");
   } else if (modalTitle.innerText === "Edit record") {
     // If an existing record is edited, update record data in database
-    formData.append("starred", selectedRecord[starred]); // Appends a new value indicating if the record is starred
-    //window.api.
-    console.log("updated record");
+    formData.append("starred", selectedRecord["starred"]); // Appends a new value indicating if the record is starred
+    formData.append("_id", selectedRecord["_id"]);
+    window.api.updateRecord(convertFormToObj(formData));
   }
 
   location.reload();

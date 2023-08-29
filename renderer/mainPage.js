@@ -68,7 +68,6 @@ createFolderBtn.addEventListener("click", () => {
 
 recordsSideBar.addEventListener("click", async (e) => {
   selectedRecord = await window.api.getRecord(e.target.id); // Find specific record with ID
-  console.log(selectedRecord);
   recordDetails.innerHTML = `
     <h1 class="title">
     <span>${selectedRecord.title}</span>
