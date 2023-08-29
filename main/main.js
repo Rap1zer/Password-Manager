@@ -118,6 +118,7 @@ ipcMain.on("update-record", async (e, record) => {
   const passwordCipher = encryptPassword(record.password);
   record.password = passwordCipher.password;
   record.salt = passwordCipher.salt;
+  record.authTag = passwordCipher.authTag;
   db.insert(record);
 });
 
