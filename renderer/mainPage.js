@@ -163,9 +163,10 @@ deleteFolderBtn.addEventListener("click", async () => {
     const folderRecords = await window.api.getRecordsInFolder(
       selectedFolder.innerText.trim()
     );
+
     for (let record of folderRecords) {
       record.folder = "None";
-      window.api.updateRecord(record);
+      window.api.updateRecord(record, false);
     }
 
     const records = await window.api.getRecords(); // List of records

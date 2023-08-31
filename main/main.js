@@ -29,8 +29,8 @@ ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
     let masterPass = await db.findOne({ _id: masterPassID });
     derivedKey = crypto.scryptSync(inputMasterPassword, salt, 32);
     return hashPassword(inputMasterPassword) === masterPass.masterPassword;
-  } catch (error) {
-    console.log(error);
+  } catch {
+    return null;
   }
 });
 
@@ -49,7 +49,6 @@ ipcMain.handle("get-records", async () => {
   try {
     return await db.find({ type: "record" });
   } catch (error) {
-    console.log(error);
     // returns if there are no records saved or an error occurred
     return null;
   }
@@ -60,8 +59,8 @@ ipcMain.handle("get-record", async (e, _id) => {
   try {
     let record = await db.findOne({ _id: _id });
     return decryptRecord(record);
-  } catch (error) {
-    console.log(error);
+  } catch {
+    return null;
   }
 });
 
@@ -113,18 +112,19 @@ ipcMain.handle("get-starred-records", async () => {
 });
 
 // Update a record's properties
-ipcMain.on("update-record", async (e, record) => {
+ipcMain.on("update-record", async (e, record, createNewCipher) => {
   db.remove({ _id: record._id });
-  const passwordCipher = encryptPassword(record.password);
-  record.password = passwordCipher.password;
-  record.salt = passwordCipher.salt;
-  record.authTag = passwordCipher.authTag;
+  if (createNewCipher === undefined || createNewCipher === true) {
+    const passwordCipher = encryptPassword(record.password);
+    record.password = passwordCipher.password;
+    record.salt = passwordCipher.salt;
+    record.authTag = passwordCipher.authTag;
+  }
   db.insert(record);
 });
 
 // Delete the selected record
 ipcMain.on("delete-record", (e, record) => {
-  console.log(record);
   db.remove({ _id: record._id });
 });
 
