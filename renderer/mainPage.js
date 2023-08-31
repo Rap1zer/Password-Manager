@@ -6,6 +6,7 @@ const deleteFolderBtn = document.getElementById("delete-folder-btn");
 const everythingBtn = document.getElementById("everything-btn");
 const starredBtn = document.getElementById("starred-btn");
 const signoutBtn = document.getElementById("sign-out-btn");
+const searchBar = document.getElementById("search-bar");
 let iFrameDoc;
 let selectedBtn;
 let selectedRecord;
@@ -66,6 +67,27 @@ createFolderBtn.addEventListener("click", () => {
   });
 });
 
+// Fetch records
+searchBar.addEventListener("focus", async () => {
+  const records = await window.api.getRecords();
+
+  // Search records
+  searchBar.addEventListener("input", () => {
+    let filteredRecords = [];
+
+    for (const record of records) {
+      // Check if the title of the record includes the search input (case-insensitive)
+      if (record.title.toLowerCase().includes(searchBar.value.toLowerCase())) {
+        // Add the record to the filtered records array
+        filteredRecords.push(record);
+      }
+    }
+
+    changeSelectedBtn(everythingBtn, filteredRecords);
+  });
+});
+
+// Load selected record
 recordsSideBar.addEventListener("click", async (e) => {
   selectedRecord = await window.api.getRecord(e.target.id); // Find specific record with ID
   recordDetails.innerHTML = `
