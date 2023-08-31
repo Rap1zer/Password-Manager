@@ -7,6 +7,7 @@ const modalTitle = document.getElementById("modal-title");
 const folderSelection = document.getElementById("form-folder-select");
 const iFrame = document.getElementById("password-details");
 let newRecordBtn;
+let deleteRecordBtn;
 let editBtn;
 
 // Function to get iFrame document in order to access DOM elements
@@ -21,6 +22,7 @@ iFrame.addEventListener("load", () => {
   const iFrameDoc = iframeRef(iFrame);
   newRecordBtn = iFrameDoc.getElementById("new-record-btn");
   editBtn = iFrameDoc.getElementById("edit-btn");
+  deleteRecordBtn = iFrameDoc.getElementById("delete-record-btn");
 
   // Open record modal after clicking the "new record" button
   newRecordBtn.addEventListener("click", () => {
@@ -41,6 +43,19 @@ iFrame.addEventListener("load", () => {
       }
 
       openModal();
+    }
+  });
+
+  // Delete the selected record
+  deleteRecordBtn.addEventListener("click", () => {
+    if (selectedRecord) {
+      window.api.deleteRecord(selectedRecord);
+
+      // Remove record from record side bar / DOM
+      const recordToUnload = document.getElementById(selectedRecord._id);
+      recordToUnload.remove();
+
+      recordDetails.innerHTML = "";
     }
   });
 });

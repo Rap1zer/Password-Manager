@@ -122,6 +122,12 @@ ipcMain.on("update-record", async (e, record) => {
   db.insert(record);
 });
 
+// Delete the selected record
+ipcMain.on("delete-record", (e, record) => {
+  console.log(record);
+  db.remove({ _id: record._id });
+});
+
 // Close the application
 ipcMain.on("close-window", () => {
   win.close();
