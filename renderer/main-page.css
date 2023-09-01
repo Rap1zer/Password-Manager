@@ -313,6 +313,11 @@ textarea {
   color: #4d5255;
 }
 
+#form-password {
+  margin-bottom: 0;
+  border-radius: 5px 5px 0 0;
+}
+
 .password-strength-section progress {
   -webkit-appearance: none;
   appearance: none;
@@ -347,15 +352,34 @@ textarea {
   font-size: 0.8rem;
 }
 
-.modal-submit {
-  width: 150px;
-  height: 40px;
-  background: #3a807c;
+.btn {
   color: white;
   border: 0;
+  font-size: 1.1rem;
+}
+
+.generate-random-password-btn {
+  display: block;
+  background-color: #4d98df;
+  width: 330px;
+  padding: 0.3em;
+  border-radius: 0 0 5px 5px;
+}
+
+.generate-random-password-btn:hover {
+  background-color: #4681d3;
+}
+
+.generate-random-password-btn:active {
+  background-color: #4165c9;
+}
+
+.modal-submit {
+  background: #3a807c;
   border-radius: 7px;
   margin-top: 1em;
-  font-size: 1.1rem;
+  width: 150px;
+  height: 40px;
 }
 
 .modal-submit:hover {
