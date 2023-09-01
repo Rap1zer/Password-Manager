@@ -57,7 +57,7 @@ createFolderBtn.addEventListener("click", () => {
     createNewFolder(newFolderInput.value);
   };
 
-  // Event listener that fires after the enter key is pressed or the input is no longer focused
+  // Event listeners that fire after the enter key is pressed or the input is no longer focused
   newFolderInput.addEventListener("blur", callback);
   newFolderInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
@@ -251,12 +251,11 @@ function loadRecordsOntoSidebar(recordsToLoad) {
   }
 }
 
-/* ${findIcon(
-  recordsToLoad[i]
-)} */
-
+// Finds if a logo is suitable for this record
 function findIcon(record) {
+  // Iterate through each key value pair in the map (hash table)
   for (const [key, value] of platforms) {
+    // See if the record title or web address contains a keyword
     if (
       record.title.toLowerCase().includes(key) ||
       record["web-address"].toLowerCase().includes(key)
@@ -265,5 +264,7 @@ function findIcon(record) {
       return value;
     }
   }
+
+  // return unknown logo if no icon is found
   return "../images/unknown-logo.svg";
 }

@@ -72,6 +72,7 @@ document
     const chars =
       "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    // Generate random characters for the random password
     for (let i = 0; i < passwordLength; i++) {
       const randomNumber = Math.floor(Math.random() * chars.length);
       randomPassword += chars.substring(randomNumber, randomNumber + 1);
