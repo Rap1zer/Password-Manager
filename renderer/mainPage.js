@@ -236,11 +236,34 @@ function loadRecordsOntoSidebar(recordsToLoad) {
   for (let i = 0; i < recordsToLoad.length; i++) {
     recordsSideBar.innerHTML += `
     <button class="record" id="${recordsToLoad[i]._id}">
-      <img class="record-icon" id="${recordsToLoad[i]._id}" src="../images/unknown-logo.svg" alt="" />
+      <img class="record-icon" id="${recordsToLoad[i]._id}" src="${findIcon(
+      recordsToLoad[i]
+    )}" alt="" />
       <div class="record-info" id="${recordsToLoad[i]._id}">
-        <h1 class="record-title" id="${recordsToLoad[i]._id}">${recordsToLoad[i].title}</h1>
-        <p class="record-description" id="${recordsToLoad[i]._id}">${recordsToLoad[i].description}</p>
+        <h1 class="record-title" id="${recordsToLoad[i]._id}">${
+      recordsToLoad[i].title
+    }</h1>
+        <p class="record-description" id="${recordsToLoad[i]._id}">${
+      recordsToLoad[i].description
+    }</p>
       </div>
     </button>`;
   }
+}
+
+/* ${findIcon(
+  recordsToLoad[i]
+)} */
+
+function findIcon(record) {
+  for (const [key, value] of platforms) {
+    if (
+      record.title.toLowerCase().includes(key) ||
+      record["web-address"].toLowerCase().includes(key)
+    ) {
+      console.log(value);
+      return value;
+    }
+  }
+  return "../images/unknown-logo.svg";
 }

@@ -200,6 +200,8 @@ button {
 
 .record-icon {
   margin-right: 10px;
+  width: 78px;
+  border-radius: 10px;
 }
 
 .record-title {
