@@ -1,7 +1,5 @@
 const modal = document.getElementById("record-modal");
 const modalBackdrop = document.getElementById("modal-backdrop");
-const exitModalBtn = document.getElementById("exit-modal-btn");
-const submitRecordBtn = document.getElementById("new-record-submit");
 const recordForm = document.getElementById("record-modal-form");
 const modalTitle = document.getElementById("modal-title");
 const folderSelection = document.getElementById("form-folder-select");
@@ -61,9 +59,26 @@ iFrame.addEventListener("load", () => {
 });
 
 // Close record modal after clicking the "exit modal" button
-exitModalBtn.addEventListener("click", () => {
+document.getElementById("exit-modal-btn").addEventListener("click", () => {
   closeModal();
 });
+
+// Generate random password when the button is pressed
+document
+  .getElementById("generate-random-password-btn")
+  .addEventListener("click", () => {
+    let randomPassword = "";
+    const passwordLength = 20;
+    const chars =
+      "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for (let i = 0; i < passwordLength; i++) {
+      const randomNumber = Math.floor(Math.random() * chars.length);
+      randomPassword += chars.substring(randomNumber, randomNumber + 1);
+    }
+
+    document.getElementById("form-password").value = randomPassword;
+  });
 
 // Called when the record is submitted
 recordForm.addEventListener("submit", (e) => {
