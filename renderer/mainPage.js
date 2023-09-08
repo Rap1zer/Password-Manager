@@ -105,6 +105,7 @@ recordsSideBar.addEventListener("click", async (e) => {
     <p class="password">Password: ${selectedRecord.password}</p>
   `;
 
+  // Set the starred button
   starRecordBtn = iFrameDoc.getElementById("star-record-btn");
 
   if (selectedRecord.starred === true) {
@@ -260,7 +261,6 @@ function findIcon(record) {
       record.title.toLowerCase().includes(key) ||
       record["web-address"].toLowerCase().includes(key)
     ) {
-      console.log(value);
       return value;
     }
   }

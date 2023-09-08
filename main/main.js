@@ -23,11 +23,13 @@ ipcMain.on("set-master-password", (e, masterPassword) => {
   derivedKey = crypto.scryptSync(masterPassword, salt, 32);
 });
 
-// Checks if master password inputed matches the master password set. Returns true if it is, otherwise it'll return false.
+// Checks if master password inputed matches the master password set. Returns true if it is, and false if it isn't
 ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
   try {
     let masterPass = await db.findOne({ _id: masterPassID });
+    // Derive the key from the master password
     derivedKey = crypto.scryptSync(inputMasterPassword, salt, 32);
+    // Check if the hashed inputted password equals the stored master password
     return hashPassword(inputMasterPassword) === masterPass.masterPassword;
   } catch {
     return null;
@@ -182,7 +184,9 @@ function decryptRecord(record) {
   return record;
 }
 
+// Create a new window
 const createWindow = (fileToLoad) => {
+  // Set the window's width based on whether the app is in development or production mode
   win = new BrowserWindow({
     width: isDev ? 1500 : 950,
     height: 700,
@@ -191,6 +195,7 @@ const createWindow = (fileToLoad) => {
     },
   });
 
+  // Set a minimum size for the window
   win.setMinimumSize(870, 650);
 
   // Open devtools if in dev environment
@@ -198,11 +203,16 @@ const createWindow = (fileToLoad) => {
     win.webContents.openDevTools();
   }
 
+  // Load the specified HTML file into the window
   win.loadFile(fileToLoad);
 };
 
+// Listen for the “whenReady” event from the “app” module
 app.whenReady().then(async () => {
+  // Asynchronously check whether an account already exists by querying the database to see if a master password is stored
   const isAccountSetUp = await db.findOne({ _id: masterPassID });
+
+  // If it does not exist, it creates a signup window, otherwise it creates a login window.
   if (isAccountSetUp) {
     createWindow("renderer/login.html");
   } else {
