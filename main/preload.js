@@ -1,5 +1,7 @@
+// The contextBridge is allows you to define APIs which the renderer process can access
 const { contextBridge, ipcRenderer } = require("electron");
 
+// Only exposes pre-approved APIs for controlled and secure communication
 contextBridge.exposeInMainWorld("api", {
   setMasterPass: (masterPass) =>
     ipcRenderer.send("set-master-password", masterPass),
