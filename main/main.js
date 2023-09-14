@@ -16,10 +16,16 @@ const db = Datastore.create({
 
 // Sets master password
 ipcMain.on("set-master-password", (e, masterPassword) => {
+  const hashedPassword = hashPassword(masterPassword);
+
+  // Insert the hashed masterPassword into the database
   db.insert({
-    masterPassword: hashPassword(masterPassword),
+    masterPassword: hashedPassword.hashValue,
+    salt: hashedPassword.salt,
     _id: masterPassID,
   });
+
+  //Derive a key from the masterPassword
   derivedKey = crypto.scryptSync(masterPassword, salt, 32);
 });
 
@@ -30,7 +36,10 @@ ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
     // Derive the key from the master password
     derivedKey = crypto.scryptSync(inputMasterPassword, salt, 32);
     // Check if the hashed inputted password equals the stored master password
-    return hashPassword(inputMasterPassword) === masterPass.masterPassword;
+    return (
+      hashPassword(inputMasterPassword, masterPass.salt).hashValue ===
+      masterPass.masterPassword
+    );
   } catch {
     return null;
   }
@@ -38,7 +47,7 @@ ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
 
 // Inserts the new record into the database
 ipcMain.on("create-new-record", (e, formData) => {
-  // Encrypt the password
+  // encryptPassword returns the encrypted password, salt and authorisation tag
   const passwordCipher = encryptPassword(formData.password);
   formData.password = passwordCipher.password;
   formData.salt = passwordCipher.salt;
@@ -144,7 +153,7 @@ function encryptPassword(password) {
   encryptedPassword += cipher.final("hex");
   const authTag = cipher.getAuthTag();
 
-  //return the password and salt
+  //return an object with the encrypted password, salt and authTag
   return {
     password: encryptedPassword,
     salt: randomSalt,
@@ -152,17 +161,24 @@ function encryptPassword(password) {
   };
 }
 
-function hashPassword(password) {
+function hashPassword(password, existingSalt) {
+  let salt = existingSalt;
+  // Generate a random salt if existingSalt is null
+  if (!existingSalt) salt = crypto.randomBytes(16).toString("hex");
+
+  // Combine the password and salt
+  const saltedPassword = password + salt;
+
   const hashValue = crypto
     .createHash("sha256")
 
     // Password to be encoded
-    .update(password)
+    .update(saltedPassword)
 
     // Defining encoding type
     .digest("hex");
 
-  return hashValue;
+  return { hashValue: hashValue, salt: salt };
 }
 
 // Decrypt record password

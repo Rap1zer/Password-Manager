@@ -91,11 +91,10 @@ recordForm.addEventListener("submit", (e) => {
   if (modalTitle.innerText === "New record") {
     window.api.createNewRecord(convertFormToObj(formData));
     formData.append("starred", false); // Appends a new value indicating if the record is starred
-    console.log("created new form");
   } else if (modalTitle.innerText === "Edit record") {
     // If an existing record is edited, update record data in database
     formData.append("starred", selectedRecord["starred"]); // Appends a new value indicating if the record is starred
-    formData.append("_id", selectedRecord["_id"]);
+    formData.append("_id", selectedRecord["_id"]); // Append the ID
     window.api.updateRecord(convertFormToObj(formData));
   }
 

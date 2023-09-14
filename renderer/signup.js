@@ -32,6 +32,8 @@ addEventListener("submit", (event) => {
   }
 });
 
+// Updates the UI to show users which password requirements are met when creating a new master password
+// Returns whether the password matches all the requirements
 function isPasswordValid() {
   let passwordValidity = true;
 

@@ -70,22 +70,29 @@ createFolderBtn.addEventListener("click", () => {
 // Fetch records
 searchBar.addEventListener("focus", async () => {
   const records = await window.api.getRecords();
-
-  // Search records
-  searchBar.addEventListener("input", () => {
-    let filteredRecords = [];
-
-    for (const record of records) {
-      // Check if the title of the record includes the search input (case-insensitive)
-      if (record.title.toLowerCase().includes(searchBar.value.toLowerCase())) {
-        // Add the record to the filtered records array
-        filteredRecords.push(record);
-      }
-    }
-
-    changeSelectedBtn(everythingBtn, filteredRecords);
-  });
+  // Filter records on input
+  searchBar.addEventListener("input", () => inputHandler(records));
 });
+
+searchBar.addEventListener("blur", () => {
+  searchBar.removeEventListener("input", () => handleInput(records));
+});
+
+// Filters all the records by keyword
+function inputHandler(records) {
+  let filteredRecords = [];
+
+  for (const record of records) {
+    // Check if the title of the record includes the search input (case-insensitive)
+    if (record.title.toLowerCase().includes(searchBar.value.toLowerCase())) {
+      // Add the record to the filtered records array
+      filteredRecords.push(record);
+    }
+  }
+
+  // Switch button focus to the default "everything" button and load the filtered records onto the sidebar
+  changeSelectedBtn(everythingBtn, filteredRecords);
+}
 
 // Load selected record
 recordsSideBar.addEventListener("click", async (e) => {
@@ -151,11 +158,16 @@ signoutBtn.addEventListener("click", () => {
 
 // Delete folder
 deleteFolderBtn.addEventListener("click", async () => {
+  // Retrieve the currently selected folder
   const selectedFolder =
     folderSection.getElementsByClassName("button-selected")[0];
 
+  // If there is a selected folder, delete it
   if (selectedFolder) {
+    // Update database
     window.api.deleteFolder(selectedFolder.innerText);
+
+    // Update user interface
     folders.splice(folders.indexOf(selectedFolder.innerText), 1);
     selectedFolder.remove();
     everythingBtn.focus();
@@ -164,13 +176,13 @@ deleteFolderBtn.addEventListener("click", async () => {
     const folderRecords = await window.api.getRecordsInFolder(
       selectedFolder.innerText.trim()
     );
-
     for (let record of folderRecords) {
       record.folder = "None";
       window.api.updateRecord(record, false);
     }
 
-    const records = await window.api.getRecords(); // List of records
+    // Go back to the "everything" tab
+    const records = await window.api.getRecords();
     changeSelectedBtn(everythingBtn, records);
   }
 });
@@ -186,23 +198,24 @@ folderSection.addEventListener("click", async (e) => {
 
 // Creates a new folder if a folder name is set
 function createNewFolder(newFolderName) {
-  // Create folder if the folder name is not empty
+  // Create folder if the folder name is not null
   if (newFolderName) {
     newFolderName = newFolderName.trim();
     changeSelectedBtn(folderSection.lastChild, []);
 
-    // if folder name already exists, alert user and stop creating a new folder
+    // If folder name already exists, alert user and stop creating a new folder
     if (folders.includes(newFolderName)) {
       alert("Folder name already exists. Choose a different name.");
       return;
     }
 
+    // Update the DOM
     folderSection.lastChild.innerHTML = newFolderName;
     folderSection.lastChild.id = newFolderName + "_id";
     folderSection.lastChild.classList.remove("new-folder");
-    window.api.createNewFolder(newFolderName);
+    window.api.createNewFolder(newFolderName); // Add folder to database
     folders.push(newFolderName);
-    loadRecordsOntoSidebar([]);
+    loadRecordsOntoSidebar([]); // Empty the sidebar
   } else {
     folderSection.lastChild.remove();
   }
