@@ -67,18 +67,20 @@ createFolderBtn.addEventListener("click", () => {
   });
 });
 
-// Fetch records
+// When the search bar is focused, fetch the initial set of records
 searchBar.addEventListener("focus", async () => {
   const records = await window.api.getRecords();
-  // Filter records on input
+
+  // Add an event listener to filter records as the user types in the search bar.
   searchBar.addEventListener("input", () => inputHandler(records));
 });
 
+// When the search bar loses focus, remove the event listener for input handling (preventing buildup of event listeners)
 searchBar.addEventListener("blur", () => {
   searchBar.removeEventListener("input", () => handleInput(records));
 });
 
-// Filters all the records by keyword
+// Filters records based on user input and updates the displayed results.
 function inputHandler(records) {
   let filteredRecords = [];
 
