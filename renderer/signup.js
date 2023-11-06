@@ -15,20 +15,24 @@ signupForm.addEventListener("keydown", (event) => {
   }
 });
 
+// Add an event listener to the form's "submit" event.
 addEventListener("submit", (event) => {
-  //set master password if password meets all requirements and is retyped twice properly
+  // Check if the submitted password meets requirements and is retyped correctly.
   if (isPasswordValid() && passwordCheckInput.value === passwordInput.value) {
+    // If conditions are met, set the master password using the Electron API.
     window.api.setMasterPass(passwordInput.value);
   } else {
-    // prevent form from submitting if password does not meet all requirements
+    // Prevent the form from submitting if password does not meet all requirements
     event.preventDefault();
 
+    // Check if the passwords don't match and display an alert if they don't.
     if (passwordCheckInput.value !== passwordInput.value) {
-      console.log(passwordCheckInput.value);
       alert("Passwords do not match.");
     }
-    if (!isPasswordValid())
+    // Check if the password doesn't meet all requirements and display an alert if so.
+    if (!isPasswordValid()) {
       alert("Password does not meet all the requirements.");
+    }
   }
 });
 
@@ -38,7 +42,7 @@ function isPasswordValid() {
   let passwordValidity = true;
 
   // check if password has at least 15 characters
-  if (passwordInput.value.length > 15) {
+  if (passwordInput.value.length >= 15) {
     requirementsEl[0].classList.remove("criteria-not-met");
     requirementsEl[0].classList.add("criteria-met");
   } else {

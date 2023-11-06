@@ -29,18 +29,21 @@ ipcMain.on("set-master-password", (e, masterPassword) => {
   derivedKey = crypto.scryptSync(masterPassword, salt, 32);
 });
 
-// Checks if master password inputed matches the master password set. Returns true if it is, and false if it isn't
+// Checks if the inputted master password matches the stored master password
+// Returns true if they match, and false if they don't
 ipcMain.handle("check-master-password", async (e, inputMasterPassword) => {
   try {
+    // Retrieve the stored master password from the database
     let masterPass = await db.findOne({ _id: masterPassID });
     // Derive the key from the master password
     derivedKey = crypto.scryptSync(inputMasterPassword, salt, 32);
-    // Check if the hashed inputted password equals the stored master password
+    // Check if the hashed inputted password equals the stored master password hash
     return (
       hashPassword(inputMasterPassword, masterPass.salt).hashValue ===
       masterPass.masterPassword
     );
   } catch {
+    // If an error occurs (e.g., database retrieval fails), return null.
     return null;
   }
 });

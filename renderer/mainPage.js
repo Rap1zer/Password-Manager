@@ -267,7 +267,7 @@ function loadRecordsOntoSidebar(recordsToLoad) {
   }
 }
 
-// Finds if a logo is suitable for this record
+// Finds if an icon is suitable for this record
 function findIcon(record) {
   // Iterate through each key value pair in the map (hash table)
   for (const [key, value] of platforms) {

@@ -67,8 +67,11 @@ document.getElementById("exit-modal-btn").addEventListener("click", () => {
 document
   .getElementById("generate-random-password-btn")
   .addEventListener("click", () => {
+    // Initialize an empty string to store the random password
     let randomPassword = "";
+    // Define the desired length of the random password
     const passwordLength = 20;
+    // Define the characters from which the random password will be composed
     const chars =
       "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -78,6 +81,7 @@ document
       randomPassword += chars.substring(randomNumber, randomNumber + 1);
     }
 
+    // Display the generated random password in the "form-password" input field
     document.getElementById("form-password").value = randomPassword;
   });
 
