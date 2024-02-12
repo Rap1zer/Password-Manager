@@ -207,7 +207,7 @@ function decryptRecord(record) {
 const createWindow = (fileToLoad) => {
   // Set the window's width based on whether the app is in development or production mode
   win = new BrowserWindow({
-    width: isDev ? 1500 : 950,
+    width: 950,
     height: 700,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
@@ -216,11 +216,6 @@ const createWindow = (fileToLoad) => {
 
   // Set a minimum size for the window
   win.setMinimumSize(870, 650);
-
-  // Open devtools if in dev environment
-  if (isDev) {
-    win.webContents.openDevTools();
-  }
 
   // Load the specified HTML file into the window
   win.loadFile(fileToLoad);
